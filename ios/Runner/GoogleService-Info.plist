@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>817919142084-b048e9r468ub7b8mbc1s0tf9c9r4oubm.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.817919142084-b048e9r468ub7b8mbc1s0tf9c9r4oubm</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBeU3UoPf3BkCU7lofhJgpZThyl5NdiBoA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>817919142084</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.flugoMobile</string>
+	<key>PROJECT_ID</key>
+	<string>flugo-6cf36</string>
+	<key>STORAGE_BUCKET</key>
+	<string>flugo-6cf36.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:817919142084:ios:9242b8df74fbc99cba0191</string>
+</dict>
+</plist>

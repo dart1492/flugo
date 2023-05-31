@@ -1,0 +1,128 @@
+# Diff Details
+
+Date : 2023-03-05 23:59:12
+
+Directory d:\\Development\\Collaborative_development\\flugo\\flugo_mobile\\lib
+
+Total : 113 files,  637 codes, 39 comments, 61 blanks, all 737 lines
+
+[Summary](results.md) / [Details](details.md) / [Diff Summary](diff.md) / Diff Details
+
+## Files
+| filename | language | code | comment | blank | total |
+| :--- | :--- | ---: | ---: | ---: | ---: |
+| [lib/src/apis/authentication_api.dart](/lib/src/apis/authentication_api.dart) | Dart | 11 | 2 | 4 | 17 |
+| [lib/src/apis/jokes_api.dart](/lib/src/apis/jokes_api.dart) | Dart | 4 | 0 | 0 | 4 |
+| [lib/src/blocs/authentication_blocs/sign_up_bloc/sign_up_bloc.dart](/lib/src/blocs/authentication_blocs/sign_up_bloc/sign_up_bloc.dart) | Dart | 2 | 0 | 0 | 2 |
+| [lib/src/blocs/authentication_blocs/sign_up_bloc/sign_up_state.dart](/lib/src/blocs/authentication_blocs/sign_up_bloc/sign_up_state.dart) | Dart | 0 | 1 | 0 | 1 |
+| [lib/src/blocs/home_bloc/home_bloc.dart](/lib/src/blocs/home_bloc/home_bloc.dart) | Dart | 4 | 0 | -1 | 3 |
+| [lib/src/blocs/home_bloc/home_event.dart](/lib/src/blocs/home_bloc/home_event.dart) | Dart | 4 | 3 | 2 | 9 |
+| [lib/src/blocs/user_bloc/user_bloc.dart](/lib/src/blocs/user_bloc/user_bloc.dart) | Dart | 40 | 3 | 6 | 49 |
+| [lib/src/blocs/user_bloc/user_event.dart](/lib/src/blocs/user_bloc/user_event.dart) | Dart | 12 | 9 | 6 | 27 |
+| [lib/src/repositories/auth_repository.dart](/lib/src/repositories/auth_repository.dart) | Dart | -24 | 1 | 3 | -20 |
+| [lib/src/repositories/jokes_repository.dart](/lib/src/repositories/jokes_repository.dart) | Dart | 2 | 0 | 0 | 2 |
+| [lib/src/repositories/models/joke/get_jokes_parameters.dart](/lib/src/repositories/models/joke/get_jokes_parameters.dart) | Dart | 7 | 2 | 2 | 11 |
+| [lib/src/repositories/models/user/user.dart](/lib/src/repositories/models/user/user.dart) | Dart | 17 | 1 | 1 | 19 |
+| [lib/src/shared/app_constants.dart](/lib/src/shared/app_constants.dart) | Dart | -8 | -9 | -8 | -25 |
+| [lib/src/shared/components/custom_elevated_button.dart](/lib/src/shared/components/custom_elevated_button.dart) | Dart | 34 | 6 | 7 | 47 |
+| [lib/src/shared/theme.dart](/lib/src/shared/theme.dart) | Dart | 17 | 0 | 2 | 19 |
+| [lib/src/shared/widget_constants.dart](/lib/src/shared/widget_constants.dart) | Dart | 17 | 18 | 15 | 50 |
+| [lib/src/views/auth_views/components/auth_form_field.dart](/lib/src/views/auth_views/components/auth_form_field.dart) | Dart | 1 | 0 | 0 | 1 |
+| [lib/src/views/auth_views/components/bouncing_button.dart](/lib/src/views/auth_views/components/bouncing_button.dart) | Dart | 48 | 5 | 7 | 60 |
+| [lib/src/views/auth_views/components/custom_elevated_button.dart](/lib/src/views/auth_views/components/custom_elevated_button.dart) | Dart | -29 | -4 | -5 | -38 |
+| [lib/src/views/auth_views/components/google_auth_button.dart](/lib/src/views/auth_views/components/google_auth_button.dart) | Dart | 40 | 2 | 3 | 45 |
+| [lib/src/views/auth_views/components/password_form_field.dart](/lib/src/views/auth_views/components/password_form_field.dart) | Dart | 14 | 1 | 2 | 17 |
+| [lib/src/views/auth_views/components/sign_in_form.dart](/lib/src/views/auth_views/components/sign_in_form.dart) | Dart | -147 | -26 | -14 | -187 |
+| [lib/src/views/auth_views/components/sign_in_form_widgets.dart](/lib/src/views/auth_views/components/sign_in_form_widgets.dart) | Dart | 80 | 10 | 9 | 99 |
+| [lib/src/views/auth_views/components/sign_in_navigation_text.dart](/lib/src/views/auth_views/components/sign_in_navigation_text.dart) | Dart | -3 | 0 | 0 | -3 |
+| [lib/src/views/auth_views/components/sign_up_form.dart](/lib/src/views/auth_views/components/sign_up_form.dart) | Dart | -132 | -3 | -4 | -139 |
+| [lib/src/views/auth_views/components/subtitle_text.dart](/lib/src/views/auth_views/components/subtitle_text.dart) | Dart | 20 | 2 | 3 | 25 |
+| [lib/src/views/auth_views/components/title_text.dart](/lib/src/views/auth_views/components/title_text.dart) | Dart | -10 | 0 | -4 | -14 |
+| [lib/src/views/auth_views/display_name_create_view.dart](/lib/src/views/auth_views/display_name_create_view.dart) | Dart | -8 | -4 | -3 | -15 |
+| [lib/src/views/auth_views/sign_in_view.dart](/lib/src/views/auth_views/sign_in_view.dart) | Dart | 119 | 4 | 6 | 129 |
+| [lib/src/views/auth_views/sign_up_view.dart](/lib/src/views/auth_views/sign_up_view.dart) | Dart | 86 | 0 | 3 | 89 |
+| [lib/src/views/home/components/background_home_view_circles.dart](/lib/src/views/home/components/background_home_view_circles.dart) | Dart | -62 | -4 | -9 | -75 |
+| [lib/src/views/home/components/clear_button.dart](/lib/src/views/home/components/clear_button.dart) | Dart | -41 | -4 | -8 | -53 |
+| [lib/src/views/home/components/filter_options_menu/ascending_sort_chip.dart](/lib/src/views/home/components/filter_options_menu/ascending_sort_chip.dart) | Dart | -80 | -3 | -9 | -92 |
+| [lib/src/views/home/components/filter_options_menu/descending_sort_chip.dart](/lib/src/views/home/components/filter_options_menu/descending_sort_chip.dart) | Dart | -73 | -4 | -9 | -86 |
+| [lib/src/views/home/components/filter_options_menu/filter_options_menu.dart](/lib/src/views/home/components/filter_options_menu/filter_options_menu.dart) | Dart | -81 | -2 | -6 | -89 |
+| [lib/src/views/home/components/filter_options_menu/refresh_jokes_button.dart](/lib/src/views/home/components/filter_options_menu/refresh_jokes_button.dart) | Dart | -53 | -2 | -4 | -59 |
+| [lib/src/views/home/components/filter_options_menu/search_by_dropdown_button.dart](/lib/src/views/home/components/filter_options_menu/search_by_dropdown_button.dart) | Dart | -62 | -4 | -4 | -70 |
+| [lib/src/views/home/components/filter_options_menu/show_more_button.dart](/lib/src/views/home/components/filter_options_menu/show_more_button.dart) | Dart | -44 | -4 | -5 | -53 |
+| [lib/src/views/home/components/filter_options_menu/show_only_liked_button.dart](/lib/src/views/home/components/filter_options_menu/show_only_liked_button.dart) | Dart | -79 | -4 | -9 | -92 |
+| [lib/src/views/home/components/jokes_list.dart](/lib/src/views/home/components/jokes_list.dart) | Dart | -64 | -2 | -8 | -74 |
+| [lib/src/views/home/components/jokes_list_element.dart](/lib/src/views/home/components/jokes_list_element.dart) | Dart | -73 | -3 | -5 | -81 |
+| [lib/src/views/home/components/jokes_search_text_field.dart](/lib/src/views/home/components/jokes_search_text_field.dart) | Dart | -68 | -2 | -8 | -78 |
+| [lib/src/views/home/components/shimmer_loader.dart](/lib/src/views/home/components/shimmer_loader.dart) | Dart | -25 | -2 | -3 | -30 |
+| [lib/src/views/home/components/title_section.dart](/lib/src/views/home/components/title_section.dart) | Dart | -27 | -2 | -4 | -33 |
+| [lib/src/views/home/components/user_info_section.dart](/lib/src/views/home/components/user_info_section.dart) | Dart | -33 | -2 | -3 | -38 |
+| [lib/src/views/home/components/user_profile_icon.dart](/lib/src/views/home/components/user_profile_icon.dart) | Dart | -59 | -2 | -4 | -65 |
+| [lib/src/views/home/home_view.dart](/lib/src/views/home/home_view.dart) | Dart | -60 | -2 | -6 | -68 |
+| [lib/src/views/joke_view/components/background_joke_view_circles.dart](/lib/src/views/joke_view/components/background_joke_view_circles.dart) | Dart | -94 | -4 | -11 | -109 |
+| [lib/src/views/joke_view/components/joke_text_view.dart](/lib/src/views/joke_view/components/joke_text_view.dart) | Dart | -29 | -3 | -4 | -36 |
+| [lib/src/views/joke_view/components/joke_title.dart](/lib/src/views/joke_view/components/joke_title.dart) | Dart | -32 | -3 | -4 | -39 |
+| [lib/src/views/joke_view/components/options_row.dart](/lib/src/views/joke_view/components/options_row.dart) | Dart | -43 | -2 | -4 | -49 |
+| [lib/src/views/joke_view/components/reactions_row.dart](/lib/src/views/joke_view/components/reactions_row.dart) | Dart | -24 | -2 | -3 | -29 |
+| [lib/src/views/joke_view/joke_view.dart](/lib/src/views/joke_view/joke_view.dart) | Dart | -46 | -3 | -5 | -54 |
+| [lib/src/views/profile/components/background_profile_view_circles.dart](/lib/src/views/profile/components/background_profile_view_circles.dart) | Dart | -62 | -4 | -9 | -75 |
+| [lib/src/views/profile/components/bio_field.dart](/lib/src/views/profile/components/bio_field.dart) | Dart | -75 | -3 | -9 | -87 |
+| [lib/src/views/profile/components/change_avatar_icon.dart](/lib/src/views/profile/components/change_avatar_icon.dart) | Dart | -39 | -3 | -4 | -46 |
+| [lib/src/views/profile/components/user_jokes_list_search_bar.dart](/lib/src/views/profile/components/user_jokes_list_search_bar.dart) | Dart | -65 | -2 | -4 | -71 |
+| [lib/src/views/profile/components/user_profile_full_icon.dart](/lib/src/views/profile/components/user_profile_full_icon.dart) | Dart | -33 | -2 | -3 | -38 |
+| [lib/src/views/profile/components/username_field.dart](/lib/src/views/profile/components/username_field.dart) | Dart | -37 | -2 | -5 | -44 |
+| [lib/src/views/profile/components/users_jokes_list.dart](/lib/src/views/profile/components/users_jokes_list.dart) | Dart | -70 | -2 | -4 | -76 |
+| [lib/src/views/profile/components/view_user_jokes_button.dart](/lib/src/views/profile/components/view_user_jokes_button.dart) | Dart | -23 | -7 | -3 | -33 |
+| [lib/src/views/profile/profile_view.dart](/lib/src/views/profile/profile_view.dart) | Dart | -55 | -3 | -7 | -65 |
+| [lib/src/views/root/components/bottom_nav_bar.dart](/lib/src/views/root/components/bottom_nav_bar.dart) | Dart | 52 | 2 | 3 | 57 |
+| [lib/src/views/root/components/bottom_nav_bar_button.dart](/lib/src/views/root/components/bottom_nav_bar_button.dart) | Dart | 72 | 5 | 6 | 83 |
+| [lib/src/views/root/home/components/background_home_view_circles.dart](/lib/src/views/root/home/components/background_home_view_circles.dart) | Dart | 102 | 5 | 10 | 117 |
+| [lib/src/views/root/home/components/clear_button.dart](/lib/src/views/root/home/components/clear_button.dart) | Dart | 41 | 4 | 8 | 53 |
+| [lib/src/views/root/home/components/filter_options_menu/ascending_sort_chip.dart](/lib/src/views/root/home/components/filter_options_menu/ascending_sort_chip.dart) | Dart | 54 | 2 | 3 | 59 |
+| [lib/src/views/root/home/components/filter_options_menu/descending_sort_chip.dart](/lib/src/views/root/home/components/filter_options_menu/descending_sort_chip.dart) | Dart | 58 | 3 | 4 | 65 |
+| [lib/src/views/root/home/components/filter_options_menu/filter_options_menu.dart](/lib/src/views/root/home/components/filter_options_menu/filter_options_menu.dart) | Dart | 87 | 2 | 6 | 95 |
+| [lib/src/views/root/home/components/filter_options_menu/refresh_jokes_button.dart](/lib/src/views/root/home/components/filter_options_menu/refresh_jokes_button.dart) | Dart | 63 | 2 | 4 | 69 |
+| [lib/src/views/root/home/components/filter_options_menu/search_by_dropdown_button.dart](/lib/src/views/root/home/components/filter_options_menu/search_by_dropdown_button.dart) | Dart | 53 | 4 | 4 | 61 |
+| [lib/src/views/root/home/components/filter_options_menu/show_more_button.dart](/lib/src/views/root/home/components/filter_options_menu/show_more_button.dart) | Dart | 66 | 5 | 8 | 79 |
+| [lib/src/views/root/home/components/filter_options_menu/show_only_liked_button.dart](/lib/src/views/root/home/components/filter_options_menu/show_only_liked_button.dart) | Dart | 61 | 3 | 5 | 69 |
+| [lib/src/views/root/home/components/jokes_list.dart](/lib/src/views/root/home/components/jokes_list.dart) | Dart | 117 | 3 | 14 | 134 |
+| [lib/src/views/root/home/components/jokes_list_element.dart](/lib/src/views/root/home/components/jokes_list_element.dart) | Dart | 73 | 3 | 5 | 81 |
+| [lib/src/views/root/home/components/jokes_search_text_field.dart](/lib/src/views/root/home/components/jokes_search_text_field.dart) | Dart | 62 | 2 | 7 | 71 |
+| [lib/src/views/root/home/components/shimmer_loader.dart](/lib/src/views/root/home/components/shimmer_loader.dart) | Dart | 29 | 2 | 3 | 34 |
+| [lib/src/views/root/home/components/title_section.dart](/lib/src/views/root/home/components/title_section.dart) | Dart | 21 | 2 | 3 | 26 |
+| [lib/src/views/root/home/components/user_info_section.dart](/lib/src/views/root/home/components/user_info_section.dart) | Dart | 33 | 2 | 3 | 38 |
+| [lib/src/views/root/home/components/user_profile_icon.dart](/lib/src/views/root/home/components/user_profile_icon.dart) | Dart | 59 | 2 | 4 | 65 |
+| [lib/src/views/root/home/home_view.dart](/lib/src/views/root/home/home_view.dart) | Dart | 57 | 2 | 6 | 65 |
+| [lib/src/views/root/home/joke_view/components/background_joke_view_circles.dart](/lib/src/views/root/home/joke_view/components/background_joke_view_circles.dart) | Dart | 94 | 4 | 11 | 109 |
+| [lib/src/views/root/home/joke_view/components/joke_text_view.dart](/lib/src/views/root/home/joke_view/components/joke_text_view.dart) | Dart | 29 | 3 | 4 | 36 |
+| [lib/src/views/root/home/joke_view/components/joke_title.dart](/lib/src/views/root/home/joke_view/components/joke_title.dart) | Dart | 32 | 3 | 4 | 39 |
+| [lib/src/views/root/home/joke_view/components/options_row.dart](/lib/src/views/root/home/joke_view/components/options_row.dart) | Dart | 43 | 2 | 4 | 49 |
+| [lib/src/views/root/home/joke_view/components/reactions_row.dart](/lib/src/views/root/home/joke_view/components/reactions_row.dart) | Dart | 24 | 2 | 3 | 29 |
+| [lib/src/views/root/home/joke_view/joke_view.dart](/lib/src/views/root/home/joke_view/joke_view.dart) | Dart | 48 | 3 | 5 | 56 |
+| [lib/src/views/root/profile/components/background_profile_view_circles.dart](/lib/src/views/root/profile/components/background_profile_view_circles.dart) | Dart | 62 | 4 | 9 | 75 |
+| [lib/src/views/root/profile/components/bio_field.dart](/lib/src/views/root/profile/components/bio_field.dart) | Dart | 115 | 3 | 10 | 128 |
+| [lib/src/views/root/profile/components/bio_page.dart](/lib/src/views/root/profile/components/bio_page.dart) | Dart | 129 | 3 | 9 | 141 |
+| [lib/src/views/root/profile/components/change_avatar_icon.dart](/lib/src/views/root/profile/components/change_avatar_icon.dart) | Dart | 39 | 3 | 4 | 46 |
+| [lib/src/views/root/profile/components/status_field.dart](/lib/src/views/root/profile/components/status_field.dart) | Dart | 77 | 3 | 7 | 87 |
+| [lib/src/views/root/profile/components/user_jokes_list_search_bar.dart](/lib/src/views/root/profile/components/user_jokes_list_search_bar.dart) | Dart | 65 | 2 | 4 | 71 |
+| [lib/src/views/root/profile/components/user_profile_full_icon.dart](/lib/src/views/root/profile/components/user_profile_full_icon.dart) | Dart | 33 | 2 | 3 | 38 |
+| [lib/src/views/root/profile/components/username_field.dart](/lib/src/views/root/profile/components/username_field.dart) | Dart | 38 | 2 | 5 | 45 |
+| [lib/src/views/root/profile/components/users_jokes_list.dart](/lib/src/views/root/profile/components/users_jokes_list.dart) | Dart | 70 | 2 | 4 | 76 |
+| [lib/src/views/root/profile/components/view_user_jokes_button.dart](/lib/src/views/root/profile/components/view_user_jokes_button.dart) | Dart | 23 | 7 | 3 | 33 |
+| [lib/src/views/root/profile/profile_view.dart](/lib/src/views/root/profile/profile_view.dart) | Dart | 87 | 5 | 9 | 101 |
+| [lib/src/views/root/root_view.dart](/lib/src/views/root/root_view.dart) | Dart | -37 | 0 | -2 | -39 |
+| [lib/src/views/root/write/components/background_write_view_circles.dart](/lib/src/views/root/write/components/background_write_view_circles.dart) | Dart | 105 | 4 | 12 | 121 |
+| [lib/src/views/root/write/components/clear_all_button.dart](/lib/src/views/root/write/components/clear_all_button.dart) | Dart | 45 | 2 | 7 | 54 |
+| [lib/src/views/root/write/components/done_button.dart](/lib/src/views/root/write/components/done_button.dart) | Dart | 34 | 3 | 5 | 42 |
+| [lib/src/views/root/write/components/joke_explanation_input_field.dart](/lib/src/views/root/write/components/joke_explanation_input_field.dart) | Dart | 47 | 3 | 5 | 55 |
+| [lib/src/views/root/write/components/joke_text_input_field.dart](/lib/src/views/root/write/components/joke_text_input_field.dart) | Dart | 50 | 3 | 7 | 60 |
+| [lib/src/views/root/write/components/joke_title_input_field.dart](/lib/src/views/root/write/components/joke_title_input_field.dart) | Dart | 44 | 3 | 5 | 52 |
+| [lib/src/views/root/write/write_view.dart](/lib/src/views/root/write/write_view.dart) | Dart | 102 | 2 | 10 | 114 |
+| [lib/src/views/write/components/background_write_view_circles.dart](/lib/src/views/write/components/background_write_view_circles.dart) | Dart | -105 | -4 | -12 | -121 |
+| [lib/src/views/write/components/clear_all_button.dart](/lib/src/views/write/components/clear_all_button.dart) | Dart | -45 | -2 | -7 | -54 |
+| [lib/src/views/write/components/done_button.dart](/lib/src/views/write/components/done_button.dart) | Dart | -30 | -3 | -5 | -38 |
+| [lib/src/views/write/components/joke_explanation_input_field.dart](/lib/src/views/write/components/joke_explanation_input_field.dart) | Dart | -47 | -3 | -5 | -55 |
+| [lib/src/views/write/components/joke_text_input_field.dart](/lib/src/views/write/components/joke_text_input_field.dart) | Dart | -50 | -3 | -7 | -60 |
+| [lib/src/views/write/components/joke_title_input_field.dart](/lib/src/views/write/components/joke_title_input_field.dart) | Dart | -44 | -3 | -5 | -52 |
+| [lib/src/views/write/write_view.dart](/lib/src/views/write/write_view.dart) | Dart | -107 | -2 | -10 | -119 |
+
+[Summary](results.md) / [Details](details.md) / [Diff Summary](diff.md) / Diff Details

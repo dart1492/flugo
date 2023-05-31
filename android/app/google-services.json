@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "817919142084",
+    "project_id": "flugo-6cf36",
+    "storage_bucket": "flugo-6cf36.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817919142084:android:0d28cef2c21c8a6fba0191",
+        "android_client_info": {
+          "package_name": "com.example.flugo_mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "817919142084-mnde0s7prjohdkkq60a4odski2hrrngu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6fSI-OVnonqE91p6iqdXJavsLl5L5EWs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "817919142084-mnde0s7prjohdkkq60a4odski2hrrngu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
