@@ -37,10 +37,10 @@ class AppTheme {
           }
 
           if (states.contains(MaterialState.disabled)) {
-            return AppColors.grey;
+            return AppColors.darkerGrey;
           }
 
-          return AppColors.grey;
+          return AppColors.darkerGrey;
         },
       ),
       prefixIconColor: MaterialStateColor.resolveWith(

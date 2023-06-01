@@ -26,7 +26,7 @@ class AppRouter extends gr.$AppRouter {
                 AutoRoute(page: gr.GlobalJokesRoute.page),
                 CustomRoute(
                   page: gr.JokesDetailsRoute.page,
-                  transitionsBuilder: TransitionsBuilders.slideLeft,
+                  transitionsBuilder: TransitionsBuilders.fadeIn,
                 ),
                 CustomRoute(
                   page: gr.CommentsRoute.page,
