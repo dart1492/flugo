@@ -21,7 +21,7 @@ class AppRouter extends gr.$AppRouter {
           page: gr.BottomNavBarRoute.page,
           children: [
             AutoRoute(
-              page: gr.EmptyHomePage.page,
+              page: gr.HomeRouter.page,
               children: [
                 AutoRoute(page: gr.GlobalJokesRoute.page),
                 CustomRoute(
@@ -35,13 +35,31 @@ class AppRouter extends gr.$AppRouter {
               ],
             ),
             AutoRoute(page: gr.WriteJokeRoute.page),
-            AutoRoute(page: gr.ProfileRoute.page),
+            AutoRoute(
+              page: gr.ProfileRouter.page,
+              children: [
+                AutoRoute(
+                  page: gr.ProfileRoute.page,
+                  maintainState: false,
+                ),
+                CustomRoute(
+                  transitionsBuilder: TransitionsBuilders.fadeIn,
+                  page: gr.FramesRoute.page,
+                  maintainState: false,
+                ),
+              ],
+            ),
           ],
         ),
       ];
 }
 
-@RoutePage(name: 'EmptyHomePage')
-class EmptyHomePage extends AutoRouter {
-  const EmptyHomePage({super.key});
+@RoutePage(name: 'HomeRouter')
+class HomeRouter extends AutoRouter {
+  const HomeRouter({super.key});
+}
+
+@RoutePage(name: "ProfileRouter")
+class EmptyProfilePage extends AutoRouter {
+  const EmptyProfilePage({super.key});
 }

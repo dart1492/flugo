@@ -1,5 +1,5 @@
 import 'package:flugo_mobile/features/profile/domain/repositories/profile_repository.dart';
-import 'package:flugo_mobile/features/profile/presentation/blocs/cubit/profile_state.dart';
+import 'package:flugo_mobile/features/profile/presentation/blocs/profile_cubit/profile_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProfileCubit extends Cubit<ProfileState> {

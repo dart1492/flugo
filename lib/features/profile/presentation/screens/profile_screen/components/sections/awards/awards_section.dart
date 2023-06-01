@@ -1,6 +1,6 @@
 import 'package:flugo_mobile/core/constants/app_colors.dart';
 import 'package:flugo_mobile/core/styles/text_style.dart';
-import 'package:flugo_mobile/features/profile/presentation/screens/components/sections/awards/awards_list.dart';
+import 'package:flugo_mobile/features/profile/presentation/screens/profile_screen/components/sections/awards/awards_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 

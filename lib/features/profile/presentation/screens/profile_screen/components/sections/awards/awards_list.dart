@@ -1,8 +1,8 @@
 import 'package:flugo_mobile/core/constants/app_colors.dart';
 import 'package:flugo_mobile/core/constants/image_names.dart';
-import 'package:flugo_mobile/features/profile/presentation/screens/components/sections/awards/award_tile.dart';
-import 'package:flugo_mobile/features/profile/presentation/screens/components/sections/awards/award_types/frame_award.dart';
-import 'package:flugo_mobile/features/profile/presentation/screens/components/sections/awards/award_types/title_award.dart';
+import 'package:flugo_mobile/features/profile/presentation/screens/profile_screen/components/sections/awards/award_tile.dart';
+import 'package:flugo_mobile/features/profile/presentation/screens/profile_screen/components/sections/awards/award_types/frame_award.dart';
+import 'package:flugo_mobile/features/profile/presentation/screens/profile_screen/components/sections/awards/award_types/title_award.dart';
 import 'package:flutter/material.dart';
 
 class AwardsList extends StatelessWidget {

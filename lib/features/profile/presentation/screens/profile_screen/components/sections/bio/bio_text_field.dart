@@ -8,10 +8,11 @@ class BioTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomTextField(
-      maxLines: null,
-      charLimit: 70,
-      onChanged: (p0) {},
+    return SizedBox(
+      child: CustomTextField(
+        maxLines: 4,
+        onChanged: (p0) {},
+      ),
     );
   }
 }
