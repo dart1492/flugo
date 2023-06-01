@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flugo_mobile/core/components/custom_bot_toasts.dart';
+import 'package:flugo_mobile/core/inversions/custom_bot_toasts.dart';
 import 'package:flugo_mobile/core/components/custom_text_field.dart';
 import 'package:flugo_mobile/core/constants/app_colors.dart';
 import 'package:flugo_mobile/core/constants/image_names.dart';
@@ -27,17 +27,16 @@ class _WriteJokeScreenState extends State<WriteJokeScreen> {
 
   void _listener(BuildContext context, WriteJokeState state) {
     if (state is FailedPostState) {
-      CustomBotToasts.showInfoToast(
+      // TODO: DEAL WITH TOASTS
+      CustomBotToasts.showErrorToast(
         text: state.errorMessage,
-        textStyle: josefin.s20.withColor(AppColors.lightRed),
       );
     }
 
     if (state is SuccessPostState) {
       _resetTextFields();
-      CustomBotToasts.showInfoToast(
+      CustomBotToasts.showErrorToast(
         text: state.successMessage,
-        textStyle: josefin.s20.withColor(AppColors.lightGreen),
       );
     }
   }
