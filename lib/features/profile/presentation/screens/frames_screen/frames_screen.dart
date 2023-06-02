@@ -3,6 +3,7 @@ import 'package:flugo_mobile/core/components/custom_button.dart';
 import 'package:flugo_mobile/core/constants/app_colors.dart';
 import 'package:flugo_mobile/core/constants/image_names.dart';
 import 'package:flugo_mobile/core/styles/text_style.dart';
+import 'package:flugo_mobile/core/util/custom_scroll_behavior.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
@@ -17,6 +18,11 @@ class FramesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<String> availableFrameNames = [
+      ImageNames.crownAvatarFrame,
+      ImageNames.hornsAvatarFrame,
+    ];
+
     return Scaffold(
       appBar: _customAppBar(context),
       backgroundColor: AppColors.darkBlue,
@@ -67,25 +73,31 @@ class FramesScreen extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: GridView.builder(
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      crossAxisSpacing: 10,
-                      mainAxisSpacing: 10,
-                    ),
-                    itemBuilder: (context, index) {
-                      return Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: AppColors.darkerGrey),
-                          image: const DecorationImage(
-                            image: AssetImage(
-                              ImageNames.crownAvatarFrame,
+                  child: ScrollConfiguration(
+                    behavior: CustomBehavior(),
+                    child: GridView.builder(
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 3,
+                        crossAxisSpacing: 10,
+                        mainAxisSpacing: 10,
+                      ),
+                      itemCount: availableFrameNames.length,
+                      itemBuilder: (context, index) {
+                        return Container(
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            border: Border.all(
+                              color: AppColors.darkerGrey,
                             ),
                           ),
-                        ),
-                      );
-                    },
+                          child: Image.asset(
+                            availableFrameNames[index],
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 ),
                 const SizedBox(

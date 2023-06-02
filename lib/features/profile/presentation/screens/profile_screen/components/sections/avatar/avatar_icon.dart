@@ -50,7 +50,7 @@ class AvatarIcon extends StatelessWidget {
           ),
         ),
         Positioned(
-          right: 10,
+          right: 20,
           bottom: 10,
           child: InkWell(
             onTap: () {
