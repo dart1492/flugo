@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'package:flugo_mobile/features/auth/domain/entities/auth_response.dart';
 
 class AuthResponseModel extends AuthResponse {
