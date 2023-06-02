@@ -26,5 +26,6 @@ class AppColors {
   /// Light red color, usually for highlighting errors
   static const Color lightRed = Color.fromARGB(255, 238, 116, 107);
 
+  /// Light green for sucess messages, etc.
   static const Color lightGreen = Color.fromARGB(212, 125, 255, 130);
 }

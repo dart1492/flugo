@@ -1,8 +1,11 @@
+// ignore_for_file: public_member_api_docs
+
 import 'package:flugo_mobile/core/constants/app_colors.dart';
 import 'package:flugo_mobile/core/constants/widget_constants.dart';
 import 'package:flugo_mobile/core/styles/text_style.dart';
 import 'package:flutter/material.dart';
 
+/// Custom textfield with predefined decoration
 class CustomTextField extends StatelessWidget {
   final void Function(String)? onChanged;
 
@@ -24,6 +27,7 @@ class CustomTextField extends StatelessWidget {
 
   final int? charLimit;
 
+  /// Custom textfield with predefined decoration
   const CustomTextField({
     super.key,
     this.onChanged,

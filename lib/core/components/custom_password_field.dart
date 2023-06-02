@@ -1,7 +1,10 @@
+// ignore_for_file: public_member_api_docs
+
 import 'package:flugo_mobile/core/components/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
+/// Custom text field that allows user to obscure text
 class CustomPasswordField extends StatefulWidget {
   final void Function(String)? onChanged;
 
@@ -13,6 +16,7 @@ class CustomPasswordField extends StatefulWidget {
 
   final int? maxLines;
 
+  /// Custom text field that allows user to obscure text
   const CustomPasswordField({
     Key? key,
     this.onChanged,

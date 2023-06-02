@@ -1,12 +1,15 @@
-import 'package:bot_toast/bot_toast.dart';
 import 'package:flugo_mobile/core/constants/app_colors.dart';
 import 'package:flugo_mobile/core/styles/text_style.dart';
 import 'package:flugo_mobile/features/comments/domain/entities/get_comment.dart';
-import 'package:flugo_mobile/features/comments/presentation/comments_screen/components/comment_actions_dialog.dart';
+import 'package:flugo_mobile/features/comments/presentation/comments_screen/components/comment_actions_popup_menu_button.dart';
 import 'package:flutter/material.dart';
 
+/// Comment widget
 class CommentWidget extends StatelessWidget {
+  /// Represented entity
   final GetComment comment;
+
+  /// Comment widget
   const CommentWidget({
     super.key,
     required this.comment,
@@ -32,29 +35,12 @@ class CommentWidget extends StatelessWidget {
               AppColors.plainWhite,
             ),
           ),
-          Row(
+          const Row(
             children: [
-              const Expanded(
+              Expanded(
                 child: SizedBox(),
               ),
-              GestureDetector(
-                onTap: () => BotToast.showAttachedWidget(
-                  target: Offset(
-                    MediaQuery.of(context).size.width / 2,
-                    MediaQuery.of(context).size.height - 100,
-                  ),
-                  attachedBuilder: (cancelFunc) {
-                    return const CommentActionDialog();
-                  },
-                  animationDuration: const Duration(
-                    milliseconds: 300,
-                  ),
-                ),
-                child: const Icon(
-                  Icons.more_horiz,
-                  color: AppColors.plainWhite,
-                ),
-              ),
+              CommentActionsPopupMenuButton(),
             ],
           ),
           const SizedBox(

@@ -36,6 +36,7 @@ dependencies:
   bot_toast: ^4.0.3
   retrofit: ^4.0.1
   shared_preferences: ^2.1.1
+  custom_pop_up_menu: ^1.2.4
 
 dev_dependencies:
   flutter_test:

@@ -8,7 +8,9 @@ import 'package:flugo_mobile/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// TextField to write comment text
 class WriteCommentTextField extends StatefulWidget {
+  /// TextField to write comment text
   const WriteCommentTextField({
     super.key,
   });
