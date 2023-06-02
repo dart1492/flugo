@@ -63,9 +63,9 @@ class AvatarIcon extends StatelessWidget {
             child: Container(
               height: 50,
               width: 50,
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(133, 158, 158, 158),
-                borderRadius: BorderRadius.circular(5),
+              decoration: const BoxDecoration(
+                color: Color.fromARGB(133, 158, 158, 158),
+                shape: BoxShape.circle,
               ),
               child: const Icon(
                 Icons.create,

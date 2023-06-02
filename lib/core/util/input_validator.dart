@@ -1,3 +1,4 @@
+///
 class InputValidator {
   static const _passwordMaxLength = 30;
 

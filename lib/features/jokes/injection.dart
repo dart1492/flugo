@@ -9,6 +9,7 @@ import 'package:flugo_mobile/locator.dart';
 import 'presentation/blocs/global_jokes_cubit/global_jokes_cubit.dart';
 import 'presentation/blocs/write_joke_cubit/write_joke_cubit.dart';
 
+/// Setup dependencies for jokes feature
 void setupJokesDependencies() {
   sl.registerLazySingleton<JokeFiltersDatasource>(
     () => SPJokeFiltersDatasourceImpl(

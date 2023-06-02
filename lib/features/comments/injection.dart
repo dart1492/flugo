@@ -4,6 +4,7 @@ import 'package:flugo_mobile/features/comments/presentation/blocs/comments_cubit
 import 'package:flugo_mobile/features/comments/presentation/blocs/write_comment_cubit/write_comment_cubit.dart';
 import 'package:flugo_mobile/locator.dart';
 
+/// setup dependencies for comments feature
 void setupCommentsDependencies() {
   sl.registerLazySingleton<CommentsDatasource>(
     () => DioCommentsDatasourceImpl(

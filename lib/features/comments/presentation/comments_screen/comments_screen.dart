@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flugo_mobile/core/components/rounded_appbar.dart';
 import 'package:flugo_mobile/core/constants/app_colors.dart';
-import 'package:flugo_mobile/core/styles/text_style.dart';
 import 'package:flugo_mobile/core/util/custom_scroll_behavior.dart';
 import 'package:flugo_mobile/features/comments/domain/entities/get_comment.dart';
 import 'package:flugo_mobile/features/comments/presentation/blocs/comments_cubit/comments_cubit.dart';
@@ -10,11 +10,15 @@ import 'package:flugo_mobile/features/comments/presentation/comments_screen/comp
 import 'package:flugo_mobile/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 @RoutePage()
+
+/// Screen with the list of comments to the joke and a textfield to add new one
 class CommentsScreen extends StatelessWidget {
+  /// Joke Id to get comments by
   final int jokeId;
+
+  /// Screen with the list of comments to the joke
   const CommentsScreen({
     super.key,
     required this.jokeId,
@@ -29,7 +33,9 @@ class CommentsScreen extends StatelessWidget {
           FocusScope.of(context).requestFocus(FocusNode());
         },
         child: Scaffold(
-          appBar: _customAppBar(context),
+          appBar: const RoundedAppBar(
+            titleText: "Comments",
+          ),
           backgroundColor: AppColors.darkBlue,
           body: Padding(
             padding: const EdgeInsets.symmetric(
@@ -70,39 +76,6 @@ class CommentsScreen extends StatelessWidget {
                 const WriteCommentTextField(),
               ],
             ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  AppBar _customAppBar(BuildContext context) {
-    return AppBar(
-      title: Padding(
-        padding: const EdgeInsets.only(top: 5),
-        child: Text(
-          "Comments",
-          style: josefin.s20.copyWith(
-            color: AppColors.plainWhite,
-          ),
-        ),
-      ),
-      titleSpacing: 0.0,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(60),
-        ),
-      ),
-      backgroundColor: AppColors.lightBlue,
-      leading: GestureDetector(
-        onTap: () {
-          context.router.pop();
-        },
-        child: const Padding(
-          padding: EdgeInsets.only(left: 30),
-          child: Icon(
-            FeatherIcons.chevronLeft,
-            color: AppColors.highlightedViolet,
           ),
         ),
       ),

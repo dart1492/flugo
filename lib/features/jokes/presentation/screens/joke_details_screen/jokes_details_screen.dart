@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flugo_mobile/core/components/custom_button.dart';
+import 'package:flugo_mobile/core/components/rounded_appbar.dart';
 import 'package:flugo_mobile/core/constants/app_colors.dart';
 import 'package:flugo_mobile/core/routing/app_router.gr.dart';
 import 'package:flugo_mobile/core/util/custom_scroll_behavior.dart';
@@ -7,11 +8,15 @@ import 'package:flugo_mobile/core/styles/text_style.dart';
 import 'package:flugo_mobile/features/jokes/domain/entities/get_joke.dart';
 import 'package:flugo_mobile/features/jokes/presentation/screens/joke_details_screen/components/like_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 @RoutePage()
+
+/// Screen with full joke's title + text
 class JokesDetailsScreen extends StatelessWidget {
+  /// represented entity
   final GetJoke joke;
+
+  /// Screen with full joke's title + text
   const JokesDetailsScreen({
     super.key,
     required this.joke,
@@ -21,7 +26,7 @@ class JokesDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        appBar: _customAppBar(context),
+        appBar: const RoundedAppBar(),
         backgroundColor: AppColors.darkBlue,
         body: Padding(
           padding: const EdgeInsets.symmetric(
@@ -111,56 +116,6 @@ class JokesDetailsScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-
-  AppBar _customAppBar(BuildContext context) {
-    return AppBar(
-      titleSpacing: 0.0,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(60),
-        ),
-      ),
-      backgroundColor: AppColors.lightBlue,
-      leading: GestureDetector(
-        onTap: () {
-          context.router.pop();
-        },
-        child: const Padding(
-          padding: EdgeInsets.only(left: 30),
-          child: Icon(
-            FeatherIcons.chevronLeft,
-            color: AppColors.highlightedViolet,
-          ),
-        ),
-      ),
-      actions: [
-        Container(
-          padding: const EdgeInsets.fromLTRB(0, 10, 40, 10),
-          child: Row(
-            children: [
-              Text(
-                "dart",
-                style: josefin.s20.withColor(AppColors.plainWhite),
-              ),
-              const SizedBox(
-                width: 10,
-              ),
-              Container(
-                width: 40,
-                height: 40,
-                decoration: const BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                    image: AssetImage('assets/user_stock_icon.jpg'),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        )
-      ],
     );
   }
 }

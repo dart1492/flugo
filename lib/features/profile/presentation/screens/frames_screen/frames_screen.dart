@@ -1,19 +1,22 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flugo_mobile/core/components/custom_button.dart';
+import 'package:flugo_mobile/core/components/custom_highlighted_button.dart';
+import 'package:flugo_mobile/core/components/rounded_appbar.dart';
 import 'package:flugo_mobile/core/constants/app_colors.dart';
 import 'package:flugo_mobile/core/constants/image_names.dart';
 import 'package:flugo_mobile/core/styles/text_style.dart';
 import 'package:flugo_mobile/core/util/custom_scroll_behavior.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
 @RoutePage()
+
+/// Screen where all frames, obtained by the user are displayed
 class FramesScreen extends StatelessWidget {
   // TODO: PASS AVATAR HERE
   // final List<int> avatar;
 
   // TODO: CUBIT WILL GET A LIST OF UNLOCKED FRAMES FROM THE SERVER
 
+  /// Screen where all frames, obtained by the user are displayed
   const FramesScreen({super.key});
 
   @override
@@ -24,7 +27,9 @@ class FramesScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: _customAppBar(context),
+      appBar: const RoundedAppBar(
+        titleText: "Frames",
+      ),
       backgroundColor: AppColors.darkBlue,
       body: SafeArea(
         child: Padding(
@@ -103,58 +108,19 @@ class FramesScreen extends StatelessWidget {
                 const SizedBox(
                   height: 10,
                 ),
-                CustomButton(
+                CustomHighlightedButton(
                   childAlignment: Alignment.center,
                   width: double.infinity,
                   padding: const EdgeInsets.symmetric(vertical: 15),
-                  gradient: const LinearGradient(
-                    colors: [
-                      Color(0xFF8E2DE2),
-                      Color(0xFF4A00E0),
-                    ],
-                  ),
                   child: Text(
                     "Save",
-                    style: josefin.s24.w700.withColor(
+                    style: josefin.s20.withColor(
                       AppColors.plainWhite,
                     ),
                   ),
                 ),
               ],
             ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  AppBar _customAppBar(BuildContext context) {
-    return AppBar(
-      title: Padding(
-        padding: const EdgeInsets.only(top: 5),
-        child: Text(
-          "Frames",
-          style: josefin.s20.copyWith(
-            color: AppColors.plainWhite,
-          ),
-        ),
-      ),
-      titleSpacing: 0.0,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(60),
-        ),
-      ),
-      backgroundColor: AppColors.lightBlue,
-      leading: GestureDetector(
-        onTap: () {
-          context.router.pop();
-        },
-        child: const Padding(
-          padding: EdgeInsets.only(left: 30),
-          child: Icon(
-            FeatherIcons.chevronLeft,
-            color: AppColors.highlightedViolet,
           ),
         ),
       ),

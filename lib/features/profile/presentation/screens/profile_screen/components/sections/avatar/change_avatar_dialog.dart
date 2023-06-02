@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flugo_mobile/core/components/custom_button.dart';
+import 'package:flugo_mobile/core/components/custom_highlighted_button.dart';
 import 'package:flugo_mobile/core/constants/app_colors.dart';
 import 'package:flugo_mobile/core/routing/app_router.gr.dart';
 import 'package:flugo_mobile/core/styles/text_style.dart';
@@ -49,12 +50,10 @@ class ChangeAvatarDialog extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            CustomButton(
+            CustomHighlightedButton(
               childAlignment: Alignment.center,
               width: 140,
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
-              color: AppColors.highlightedViolet.withOpacity(0.2),
-              border: Border.all(color: AppColors.highlightedViolet),
               onTap: () {
                 Navigator.pop(context);
                 context.router.push(

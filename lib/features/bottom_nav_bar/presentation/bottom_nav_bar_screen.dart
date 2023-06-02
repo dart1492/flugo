@@ -7,7 +7,10 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 @RoutePage()
+
+/// Screen with bottom nav bar and different screen
 class BottomNavBarScreen extends StatelessWidget {
+  /// Screen with bottom nav bar and different screen
   const BottomNavBarScreen({super.key});
 
   @override
@@ -25,7 +28,7 @@ class BottomNavBarScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 5),
           decoration: BoxDecoration(
             color: AppColors.lightBlue,
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(10),
           ),
           child: SalomonBottomBar(
             items: [
