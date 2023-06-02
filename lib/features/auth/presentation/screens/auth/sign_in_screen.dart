@@ -9,7 +9,7 @@ import 'package:flugo_mobile/features/auth/presentation/blocs/auth_cubit/auth_st
 import 'package:flugo_mobile/features/auth/presentation/blocs/form_submission_status.dart';
 import 'package:flugo_mobile/features/auth/presentation/blocs/sign_in_cubit/sign_in_cubit.dart';
 import 'package:flugo_mobile/features/auth/presentation/blocs/sign_in_cubit/sign_in_state.dart';
-import 'package:flugo_mobile/features/auth/presentation/screens/auth/components/error_box.dart';
+import 'package:flugo_mobile/core/components/error_box.dart';
 import 'package:flugo_mobile/locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,15 +34,6 @@ class SignInScreen extends StatelessWidget {
         return CustomAlertDialog(message: message);
       },
     );
-  }
-
-  bool _buildErrorBoxWhen(SignInState previous, SignInState current) {
-    if (previous.email != current.email ||
-        previous.password != current.password) {
-      return false;
-    } else {
-      return true;
-    }
   }
 
   void _signInListener(BuildContext context, SignInState state) {
@@ -89,9 +80,7 @@ class SignInScreen extends StatelessWidget {
                       const SizedBox(
                         height: 30,
                       ),
-
                       BlocBuilder<SignInCubit, SignInState>(
-                        buildWhen: _buildErrorBoxWhen,
                         builder: (context, state) {
                           return ErrorBox(
                             errorText: "Invalid email",
@@ -101,18 +90,17 @@ class SignInScreen extends StatelessWidget {
                       ),
                       Builder(
                         builder: (context) {
-                          final bloc = BlocProvider.of<SignInCubit>(context);
+                          final cubit = BlocProvider.of<SignInCubit>(context);
                           return CustomTextField(
                             maxLines: 1,
                             labelText: "Email",
                             trailingIcon: const Icon(FeatherIcons.mail),
-                            onTap: () => bloc.resetFields(),
-                            onChanged: (p0) => bloc.updateEmail(p0),
+                            onTap: () => cubit.resetFields(),
+                            onChanged: (p0) => cubit.updateEmail(p0),
                           );
                         },
                       ),
                       BlocBuilder<SignInCubit, SignInState>(
-                        buildWhen: _buildErrorBoxWhen,
                         builder: (context, state) {
                           return ErrorBox(
                             errorText: "Invalid password",
@@ -141,7 +129,6 @@ class SignInScreen extends StatelessWidget {
                       Builder(
                         builder: (context) {
                           return CustomButton(
-                            childAlignment: Alignment.center,
                             width: double.infinity,
                             padding: const EdgeInsets.symmetric(vertical: 15),
                             gradient: const LinearGradient(
@@ -167,7 +154,6 @@ class SignInScreen extends StatelessWidget {
                           );
                         },
                       ),
-                      //const SignInButton(),
                     ],
                   ),
                 ),

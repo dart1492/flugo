@@ -14,6 +14,7 @@ class SignUpNavigationText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      highlightColor: AppColors.darkerGrey,
       borderRadius: BorderRadius.circular(15),
       onTap: () {
         context.router.replace(const SignUpRoute());

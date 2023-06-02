@@ -4,9 +4,14 @@ import 'package:flugo_mobile/features/auth/presentation/blocs/form_submission_st
 import 'package:flugo_mobile/features/auth/presentation/blocs/sign_in_cubit/sign_in_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// This Cubit is responsible for field validation +
+/// sending data to the server for authentication
 class SignInCubit extends Cubit<SignInState> {
+  /// Auth repository for server interactions
   final AuthRepository repository;
 
+  /// This Cubit is responsible for field validation +
+  /// sending data to the server for authentication
   SignInCubit(this.repository)
       : super(
           SignInState(
@@ -49,14 +54,25 @@ class SignInCubit extends Cubit<SignInState> {
 
   /// Update email value
   void updateEmail(String email) {
-    emit(state.copyWith(email: email));
+    emit(
+      state.copyWith(
+        email: email,
+        isEmailValidated: true,
+      ),
+    );
   }
 
   /// Update password value
   void updatePassword(String password) {
-    emit(state.copyWith(password: password));
+    emit(
+      state.copyWith(
+        password: password,
+        isEmailValidated: true,
+      ),
+    );
   }
 
+  /// Sign in - is used after the validation is complete
   void signIn() async {
     emit(
       state.copyWith(

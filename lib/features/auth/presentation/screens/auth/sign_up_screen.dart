@@ -9,7 +9,7 @@ import 'package:flugo_mobile/features/auth/presentation/blocs/auth_cubit/auth_cu
 import 'package:flugo_mobile/features/auth/presentation/blocs/form_submission_status.dart';
 import 'package:flugo_mobile/features/auth/presentation/blocs/sign_up_cubit/sign_up_cubit.dart';
 import 'package:flugo_mobile/features/auth/presentation/blocs/sign_up_cubit/sign_up_state.dart';
-import 'package:flugo_mobile/features/auth/presentation/screens/auth/components/error_box.dart';
+import 'package:flugo_mobile/core/components/error_box.dart';
 import 'package:flugo_mobile/features/auth/presentation/screens/auth/components/sign_in_navigation_text.dart';
 import 'package:flugo_mobile/features/auth/presentation/screens/auth/components/subtitle_text.dart';
 import 'package:flugo_mobile/features/auth/presentation/screens/auth/components/title_text.dart';
@@ -33,16 +33,6 @@ class SignUpScreen extends StatelessWidget {
     );
   }
 
-  bool _buildErrorBoxWhen(SignUpState previous, SignUpState current) {
-    if (previous.email != current.email ||
-        previous.password != current.password ||
-        previous.displayName != current.displayName) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
   void _signUpListener(BuildContext context, SignUpState state) {
     if (state.status is SubmissionSuccess) {
       context.read<AuthCubit>().saveToken(
@@ -61,114 +51,117 @@ class SignUpScreen extends StatelessWidget {
       create: (context) => sl<SignUpCubit>(),
       child: BlocListener<SignUpCubit, SignUpState>(
         listener: _signUpListener,
-        child: Scaffold(
-          resizeToAvoidBottomInset: true,
-          backgroundColor: AppColors.darkBlue,
-          body: SingleChildScrollView(
-            child: SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 30,
-                  vertical: 25,
-                ),
-                child: Column(
-                  children: [
-                    const TitleText(),
-                    const SubtitleText(),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    BlocBuilder<SignUpCubit, SignUpState>(
-                      buildWhen: _buildErrorBoxWhen,
-                      builder: (context, state) {
-                        return ErrorBox(
-                          errorText: "Invalid display name",
-                          isShown: state.isDisplayNameValidated,
-                        );
-                      },
-                    ),
-                    Builder(
-                      builder: (context) {
-                        final bloc = context.read<SignUpCubit>();
-                        return CustomTextField(
-                          maxLines: 1,
-                          onChanged: (p0) => bloc.updateDisplayName(p0),
-                          onTap: () => bloc.resetFieldErrors(),
-                          labelText: "Display name",
-                          trailingIcon: const Icon(FeatherIcons.user),
-                        );
-                      },
-                    ),
-                    BlocBuilder<SignUpCubit, SignUpState>(
-                      buildWhen: _buildErrorBoxWhen,
-                      builder: (context, state) {
-                        return ErrorBox(
-                          errorText: "Invalid email",
-                          isShown: state.isEmailValidated,
-                        );
-                      },
-                    ),
-                    Builder(
-                      builder: (context) {
-                        final bloc = context.read<SignUpCubit>();
-                        return CustomTextField(
-                          maxLines: 1,
-                          onChanged: (p0) => bloc.updateEmail(p0),
-                          onTap: () => bloc.resetFieldErrors(),
-                          labelText: "Email",
-                          trailingIcon: const Icon(FeatherIcons.mail),
-                        );
-                      },
-                    ),
-                    BlocBuilder<SignUpCubit, SignUpState>(
-                      buildWhen: _buildErrorBoxWhen,
-                      builder: (context, state) {
-                        return ErrorBox(
-                          errorText: "Invalid password",
-                          isShown: state.isPasswordValidated,
-                        );
-                      },
-                    ),
-                    Builder(
-                      builder: (context) {
-                        final bloc = context.read<SignUpCubit>();
-                        return CustomPasswordField(
-                          maxLines: 1,
-                          onTap: () => bloc.resetFieldErrors(),
-                          onChanged: (p0) => bloc.updatePassword(p0),
-                          labelText: "Password",
-                        );
-                      },
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    const SignInNavigationText(),
-                    const SizedBox(
-                      height: 30,
-                    ),
-                    Builder(builder: (context) {
-                      return CustomButton(
-                        childAlignment: Alignment.center,
-                        width: double.infinity,
-                        padding: const EdgeInsets.symmetric(vertical: 15),
-                        color: AppColors.highlightedViolet,
-                        gradient: const LinearGradient(colors: [
-                          Color(0xFF8E2DE2),
-                          Color(0xFF4A00E0),
-                        ]),
-                        child: Text(
-                          "Sign up",
-                          style: josefin.s24.w700.withColor(
-                            AppColors.plainWhite,
-                          ),
-                        ),
-                        onTap: () {
-                          context.read<SignUpCubit>().validateFields();
+        child: GestureDetector(
+          onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+          child: Scaffold(
+            resizeToAvoidBottomInset: true,
+            backgroundColor: AppColors.darkBlue,
+            body: SingleChildScrollView(
+              child: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 30,
+                    vertical: 25,
+                  ),
+                  child: Column(
+                    children: [
+                      const TitleText(),
+                      const SubtitleText(),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      BlocBuilder<SignUpCubit, SignUpState>(
+                        builder: (context, state) {
+                          return ErrorBox(
+                            errorText: "Invalid display name",
+                            isShown: state.isDisplayNameValidated,
+                          );
                         },
-                      );
-                    }),
-                  ],
+                      ),
+                      Builder(
+                        builder: (context) {
+                          final bloc = context.read<SignUpCubit>();
+                          return CustomTextField(
+                            maxLines: 1,
+                            onChanged: (p0) => bloc.updateDisplayName(p0),
+                            onTap: () => bloc.resetFieldErrors(),
+                            labelText: "Display name",
+                            trailingIcon: const Icon(FeatherIcons.user),
+                          );
+                        },
+                      ),
+                      BlocBuilder<SignUpCubit, SignUpState>(
+                        builder: (context, state) {
+                          return ErrorBox(
+                            errorText: "Invalid email",
+                            isShown: state.isEmailValidated,
+                          );
+                        },
+                      ),
+                      Builder(
+                        builder: (context) {
+                          final bloc = context.read<SignUpCubit>();
+                          return CustomTextField(
+                            maxLines: 1,
+                            onChanged: (p0) => bloc.updateEmail(p0),
+                            onTap: () => bloc.resetFieldErrors(),
+                            labelText: "Email",
+                            trailingIcon: const Icon(FeatherIcons.mail),
+                          );
+                        },
+                      ),
+                      BlocBuilder<SignUpCubit, SignUpState>(
+                        builder: (context, state) {
+                          return ErrorBox(
+                            errorText: "Invalid password",
+                            isShown: state.isPasswordValidated,
+                          );
+                        },
+                      ),
+                      Builder(
+                        builder: (context) {
+                          final bloc = context.read<SignUpCubit>();
+                          return CustomPasswordField(
+                            maxLines: 1,
+                            onTap: () => bloc.resetFieldErrors(),
+                            onChanged: (p0) => bloc.updatePassword(p0),
+                            labelText: "Password",
+                          );
+                        },
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      const SignInNavigationText(),
+                      const SizedBox(
+                        height: 30,
+                      ),
+                      Builder(
+                        builder: (context) {
+                          return CustomButton(
+                            width: double.infinity,
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 15,
+                            ),
+                            color: AppColors.highlightedViolet,
+                            gradient: const LinearGradient(colors: [
+                              Color(0xFF8E2DE2),
+                              Color(0xFF4A00E0),
+                            ]),
+                            child: Text(
+                              "Sign up",
+                              style: josefin.s24.w700.withColor(
+                                AppColors.plainWhite,
+                              ),
+                            ),
+                            onTap: () {
+                              context.read<SignUpCubit>().validateFields();
+                            },
+                          );
+                        },
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -3,9 +3,15 @@ import 'package:flugo_mobile/core/styles/text_style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
+/// Error box - usually used to indicate validation errors
 class ErrorBox extends StatelessWidget {
+  /// Displayed error text
   final String errorText;
+
+  /// is shown or not
   final bool isShown;
+
+  /// Error box - usually used to indicate validation errors
   const ErrorBox({
     super.key,
     required this.errorText,

@@ -4,9 +4,14 @@ import 'package:flugo_mobile/features/auth/presentation/blocs/form_submission_st
 import 'package:flugo_mobile/features/auth/presentation/blocs/sign_up_cubit/sign_up_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// This Cubit is responsible for field validation +
+/// sending data to the server for authentication
 class SignUpCubit extends Cubit<SignUpState> {
+  /// Auth repository for server interactions
   final AuthRepository repository;
 
+  /// This Cubit is responsible for field validation +
+  /// sending data to the server for authentication
   SignUpCubit(this.repository)
       : super(
           SignUpState(
@@ -20,6 +25,7 @@ class SignUpCubit extends Cubit<SignUpState> {
           ),
         );
 
+  /// Validate values of the field
   bool validateFields() {
     bool isEmailValidated = InputValidator.validateEmail(state.email);
     bool isPasswordValidated = InputValidator.validatePassword(state.password);
@@ -54,19 +60,35 @@ class SignUpCubit extends Cubit<SignUpState> {
 
   /// Update email value
   void updateEmail(String email) {
-    emit(state.copyWith(email: email));
+    emit(
+      state.copyWith(
+        email: email,
+        isEmailValidated: true,
+      ),
+    );
   }
 
   /// Update password value
   void updatePassword(String password) {
-    emit(state.copyWith(password: password));
+    emit(
+      state.copyWith(
+        password: password,
+        isPasswordValidated: true,
+      ),
+    );
   }
 
   /// Update password value
   void updateDisplayName(String displayName) {
-    emit(state.copyWith(password: displayName));
+    emit(
+      state.copyWith(
+        password: displayName,
+        isDisplayNameValidated: true,
+      ),
+    );
   }
 
+  /// Sign up with given credentials
   void signUp() async {
     emit(
       state.copyWith(

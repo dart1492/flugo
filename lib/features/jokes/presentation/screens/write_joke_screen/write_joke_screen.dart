@@ -5,7 +5,7 @@ import 'package:flugo_mobile/core/constants/app_colors.dart';
 import 'package:flugo_mobile/core/constants/image_names.dart';
 import 'package:flugo_mobile/core/util/custom_scroll_behavior.dart';
 import 'package:flugo_mobile/core/styles/text_style.dart';
-import 'package:flugo_mobile/features/auth/presentation/screens/auth/components/error_box.dart';
+import 'package:flugo_mobile/core/components/error_box.dart';
 import 'package:flugo_mobile/features/jokes/presentation/blocs/write_joke_cubit/write_joke_cubit.dart';
 import 'package:flugo_mobile/features/jokes/presentation/blocs/write_joke_cubit/write_joke_state.dart';
 import 'package:flugo_mobile/features/jokes/presentation/screens/write_joke_screen/components/post_button.dart';

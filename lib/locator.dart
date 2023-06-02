@@ -1,4 +1,3 @@
-import 'package:bot_toast/bot_toast.dart';
 import 'package:dio/dio.dart';
 import 'package:flugo_mobile/core/routing/app_router.dart';
 import 'package:flugo_mobile/core/util/api_interceptor.dart';
@@ -24,10 +23,6 @@ Future setupLocator() async {
   final sp = await SharedPreferences.getInstance();
   sl.registerLazySingleton<SharedPreferences>(
     () => sp,
-  );
-
-  sl.registerSingleton<BotToast>(
-    BotToast(),
   );
 
   setupAuthDependencies();

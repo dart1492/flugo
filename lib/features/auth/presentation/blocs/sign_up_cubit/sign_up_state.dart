@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'package:flugo_mobile/features/auth/presentation/blocs/form_submission_status.dart';
 
 class SignUpState {

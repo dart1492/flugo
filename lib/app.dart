@@ -35,8 +35,12 @@ class App extends StatelessWidget {
   }
 }
 
+/// Screen that is like a route-guard for navigation - of user is authenticated -
+///  let him pass to the main app, if not - use sign_in screen
 @RoutePage()
 class AuthNavigationScreen extends StatelessWidget {
+  /// Screen that is like a route-guard for navigation - of user is authenticated -
+  ///  let him pass to the main app, if not - use sign_in screen
   const AuthNavigationScreen({super.key});
 
   @override

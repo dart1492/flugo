@@ -66,7 +66,10 @@ class CustomButton extends StatelessWidget {
         width: width,
         height: height,
         padding: padding,
-        child: Container(alignment: childAlignment, child: child),
+        child: Container(
+          alignment: childAlignment ?? Alignment.center,
+          child: child,
+        ),
       ),
     );
   }
