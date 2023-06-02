@@ -1,7 +1,7 @@
 import 'package:flugo_mobile/core/constants/app_colors.dart';
 import 'package:flugo_mobile/core/constants/image_names.dart';
 import 'package:flugo_mobile/core/styles/text_style.dart';
-import 'package:flugo_mobile/features/profile/presentation/screens/components/sections/awards/award_types/award_type.dart';
+import 'package:flugo_mobile/features/profile/presentation/screens/profile_screen/components/sections/awards/award_types/award_type.dart';
 import 'package:flutter/material.dart';
 
 class AwardTile extends StatelessWidget {
