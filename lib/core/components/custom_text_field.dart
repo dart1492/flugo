@@ -1,7 +1,5 @@
 // ignore_for_file: public_member_api_docs
-
 import 'package:flugo_mobile/core/constants/app_colors.dart';
-import 'package:flugo_mobile/core/constants/widget_constants.dart';
 import 'package:flugo_mobile/core/styles/text_style.dart';
 import 'package:flutter/material.dart';
 
@@ -70,27 +68,19 @@ class CustomTextField extends StatelessWidget {
         fillColor: AppColors.lightBlue,
         filled: true,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(
-            WidgetConstants.authFieldsBorderRadius,
-          ),
+          borderRadius: BorderRadius.circular(5),
           borderSide: BorderSide.none,
         ),
         focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(
-            WidgetConstants.authFieldsBorderRadius,
-          ),
+          borderRadius: BorderRadius.circular(5),
           borderSide: const BorderSide(color: AppColors.highlightedViolet),
         ),
         enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(
-            WidgetConstants.authFieldsBorderRadius,
-          ),
+          borderRadius: BorderRadius.circular(5),
           borderSide: const BorderSide(color: AppColors.darkerGrey),
         ),
         errorBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(
-            WidgetConstants.authFieldsBorderRadius,
-          ),
+          borderRadius: BorderRadius.circular(5),
           borderSide: const BorderSide(color: AppColors.highlightedRed),
         ),
         errorStyle: Theme.of(context).textTheme.titleLarge?.copyWith(

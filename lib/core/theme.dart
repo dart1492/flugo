@@ -1,9 +1,9 @@
 import 'package:flugo_mobile/core/constants/app_colors.dart';
-import 'package:flugo_mobile/core/constants/widget_constants.dart';
-
 import 'package:flutter/material.dart';
 
+/// Class for theme definitions
 class AppTheme {
+  /// main theme data of the app
   static final theme = ThemeData(
     splashColor: Colors.transparent,
     colorScheme: ColorScheme.fromSeed(
@@ -17,17 +17,6 @@ class AppTheme {
       headlineMedium: TextStyle(fontSize: 32, color: AppColors.plainWhite),
       headlineLarge: TextStyle(fontSize: 40, color: AppColors.plainWhite),
       titleSmall: TextStyle(fontSize: 12, color: AppColors.plainWhite),
-    ),
-    elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(
-            WidgetConstants.boxBorderRadius,
-          ),
-        ),
-        backgroundColor: AppColors.highlightedViolet,
-        foregroundColor: AppColors.plainWhite,
-      ),
     ),
     inputDecorationTheme: InputDecorationTheme(
       suffixIconColor: MaterialStateColor.resolveWith(
@@ -57,14 +46,6 @@ class AppTheme {
         },
       ),
       floatingLabelBehavior: FloatingLabelBehavior.never,
-    ),
-    cardTheme: const CardTheme(
-      color: AppColors.lightBlue,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          Radius.circular(WidgetConstants.boxBorderRadius),
-        ),
-      ),
     ),
   );
 }
