@@ -18,7 +18,9 @@ class WriteCommentCubit extends Cubit<WriteCommentState> {
   /// Post comment text
   void postComment(String text) async {
     if (text.isNotEmpty) {
-      if (RegularExpressions.containsOnlyNewLines.allMatches(text).isEmpty) {
+      if (RegularExpressions.containsOnlyNewLinesPattern
+          .allMatches(text)
+          .isEmpty) {
         final postResult = await repo.postComment(
           PostComment(text: text),
         );

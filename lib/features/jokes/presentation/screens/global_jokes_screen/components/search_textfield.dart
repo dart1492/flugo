@@ -5,7 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
+/// Joke search Textfield
 class SearchTextfield extends StatefulWidget {
+  /// Joke search Textfield
+
   const SearchTextfield({
     super.key,
   });

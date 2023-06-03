@@ -3,7 +3,9 @@ import 'package:flugo_mobile/core/styles/text_style.dart';
 import 'package:flugo_mobile/features/profile/presentation/screens/profile_screen/components/sections/bio/bio_text_field.dart';
 import 'package:flutter/material.dart';
 
+/// Section with user's bio
 class BioSection extends StatelessWidget {
+  /// Section with user's bio
   const BioSection({
     super.key,
   });

@@ -1,4 +1,4 @@
-import 'package:flugo_mobile/core/util/input_validator.dart';
+import 'package:flugo_mobile/core/constants/regular_expressions.dart';
 import 'package:flugo_mobile/features/auth/domain/repositories/auth_repository.dart';
 import 'package:flugo_mobile/features/auth/presentation/blocs/form_submission_status.dart';
 import 'package:flugo_mobile/features/auth/presentation/blocs/sign_up_cubit/sign_up_state.dart';
@@ -27,10 +27,17 @@ class SignUpCubit extends Cubit<SignUpState> {
 
   /// Validate values of the field
   bool validateFields() {
-    bool isEmailValidated = InputValidator.validateEmail(state.email);
-    bool isPasswordValidated = InputValidator.validatePassword(state.password);
+    bool isEmailValidated = RegularExpressions.emailValidationPattern.hasMatch(
+      state.email,
+    );
+    bool isPasswordValidated =
+        RegularExpressions.passwordValidationPattern.hasMatch(
+      state.password,
+    );
     bool isDisplayNameValidated =
-        InputValidator.validateDisplayName(state.displayName);
+        RegularExpressions.displayNameValidationPattern.hasMatch(
+      state.displayName,
+    );
 
     emit(
       state.copyWith(

@@ -9,6 +9,7 @@ import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 class JokesListElement extends StatelessWidget {
   static const double _trailingRowWidth = 120;
 
+  /// represented entity
   final GetJoke joke;
 
   /// Single element of the jokes list

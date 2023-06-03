@@ -32,6 +32,7 @@ class CustomButton extends StatelessWidget {
   /// Border of the button - defaults to the blue colored one with width=3
   final Border? border;
 
+  /// Gradient color of the button
   final Gradient? gradient;
 
   /// Custom button, used throughout this app

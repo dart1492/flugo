@@ -5,7 +5,9 @@ import 'package:flugo_mobile/features/profile/presentation/screens/profile_scree
 import 'package:flugo_mobile/features/profile/presentation/screens/profile_screen/components/sections/awards/award_types/title_award.dart';
 import 'package:flutter/material.dart';
 
+/// List with award tiles
 class AwardsList extends StatelessWidget {
+  /// List with award tiles
   const AwardsList({
     super.key,
   });

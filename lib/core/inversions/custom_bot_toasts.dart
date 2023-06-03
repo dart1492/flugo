@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 
 /// Each call to BotTOasts is made here - for dependency inversion (or whatever you call it).
 class CustomBotToasts {
+  /// Show error toast with passed message
   static void showErrorToast({required String text}) {
     BotToast.showText(
       contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),

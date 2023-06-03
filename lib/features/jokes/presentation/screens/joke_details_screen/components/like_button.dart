@@ -1,8 +1,11 @@
 import 'package:flugo_mobile/core/constants/app_colors.dart';
 import 'package:flugo_mobile/core/styles/text_style.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
+/// Like joke button
 class LikeButton extends StatelessWidget {
+  /// Like joke button
   const LikeButton({
     super.key,
   });
@@ -21,20 +24,20 @@ class LikeButton extends StatelessWidget {
       child: IntrinsicWidth(
         child: Row(
           children: [
-            const Icon(
-              Icons.thumb_up_alt_outlined,
-              size: 20,
-              color: AppColors.plainWhite,
-            ),
-            const SizedBox(
-              width: 10,
-            ),
             Padding(
               padding: const EdgeInsets.only(top: 2),
               child: Text(
                 "Like",
                 style: josefin.s20.withColor(AppColors.plainWhite),
               ),
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            const Icon(
+              FeatherIcons.heart,
+              size: 20,
+              color: AppColors.plainWhite,
             ),
           ],
         ),

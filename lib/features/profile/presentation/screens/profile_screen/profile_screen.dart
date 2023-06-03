@@ -13,7 +13,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
+
+/// Screen with user's profile info
 class ProfileScreen extends StatelessWidget {
+  /// Screen with user's profile info
   const ProfileScreen({super.key});
 
   @override

@@ -1,4 +1,4 @@
-import 'package:flugo_mobile/core/util/input_validator.dart';
+import 'package:flugo_mobile/core/constants/regular_expressions.dart';
 import 'package:flugo_mobile/features/auth/domain/repositories/auth_repository.dart';
 import 'package:flugo_mobile/features/auth/presentation/blocs/form_submission_status.dart';
 import 'package:flugo_mobile/features/auth/presentation/blocs/sign_in_cubit/sign_in_state.dart';
@@ -25,8 +25,10 @@ class SignInCubit extends Cubit<SignInState> {
 
   /// Validate current state of fields and show/hide boxes
   bool validateFields() {
-    bool isEmailValidated = InputValidator.validateEmail(state.email);
-    bool isPasswordValidated = InputValidator.validatePassword(state.password);
+    bool isEmailValidated =
+        RegularExpressions.emailValidationPattern.hasMatch(state.email);
+    bool isPasswordValidated =
+        RegularExpressions.passwordValidationPattern.hasMatch(state.password);
 
     emit(
       state.copyWith(

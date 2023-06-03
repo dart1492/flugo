@@ -11,7 +11,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
+
+/// Screen with global jokes
 class GlobalJokesScreen extends StatefulWidget {
+  /// Screen with global jokes
   const GlobalJokesScreen({super.key});
 
   @override

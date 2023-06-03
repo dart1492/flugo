@@ -4,7 +4,9 @@ import 'package:flugo_mobile/features/profile/presentation/screens/profile_scree
 import 'package:flutter/material.dart';
 import 'package:flutter_feather_icons/flutter_feather_icons.dart';
 
+/// Section with available awards
 class AwardsSection extends StatelessWidget {
+  /// Section with available awards
   const AwardsSection({
     super.key,
   });

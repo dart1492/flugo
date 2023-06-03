@@ -1,3 +1,5 @@
+// ignore_for_file: public_member_api_docs
+
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
@@ -11,8 +13,6 @@ class Josefin extends CTextStyle {
       : super._(
           fontFamily: _josefinFontName,
           fontSize: 14.0,
-          //color: CColors.black,
-          // height: 1.35,
         );
 }
 

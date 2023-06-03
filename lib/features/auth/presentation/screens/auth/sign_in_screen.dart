@@ -62,99 +62,104 @@ class SignInScreen extends StatelessWidget {
         create: (context) => sl<SignInCubit>(),
         child: BlocListener<SignInCubit, SignInState>(
           listener: _signInListener,
-          child: Scaffold(
-            resizeToAvoidBottomInset: true,
-            backgroundColor: AppColors.darkBlue,
-            body: SingleChildScrollView(
-              child: SafeArea(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 30,
-                    vertical: 45,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      const TitleText(),
-                      const SubtitleText(),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      BlocBuilder<SignInCubit, SignInState>(
-                        builder: (context, state) {
-                          return ErrorBox(
-                            errorText: "Invalid email",
-                            isShown: state.isEmailValidated,
-                          );
-                        },
-                      ),
-                      Builder(
-                        builder: (context) {
-                          final cubit = BlocProvider.of<SignInCubit>(context);
-                          return CustomTextField(
-                            maxLines: 1,
-                            labelText: "Email",
-                            trailingIcon: const Icon(FeatherIcons.mail),
-                            onTap: () => cubit.resetFields(),
-                            onChanged: (p0) => cubit.updateEmail(p0),
-                          );
-                        },
-                      ),
-                      BlocBuilder<SignInCubit, SignInState>(
-                        builder: (context, state) {
-                          return ErrorBox(
-                            errorText: "Invalid password",
-                            isShown: state.isPasswordValidated,
-                          );
-                        },
-                      ),
-                      Builder(
-                        builder: (context) {
-                          final bloc = BlocProvider.of<SignInCubit>(context);
-                          return CustomPasswordField(
-                            maxLines: 1,
-                            labelText: "Password",
-                            onTap: () => bloc.resetFields(),
-                            onChanged: (p0) => bloc.updatePassword(p0),
-                          );
-                        },
-                      ),
-                      const SizedBox(
-                        height: 50,
-                      ),
-                      const SignUpNavigationText(),
-                      const SizedBox(
-                        height: 30,
-                      ),
-                      Builder(
-                        builder: (context) {
-                          return CustomButton(
-                            width: double.infinity,
-                            padding: const EdgeInsets.symmetric(vertical: 15),
-                            gradient: const LinearGradient(
-                              colors: [
-                                Color(0xFF8E2DE2),
-                                Color(0xFF4A00E0),
-                              ],
-                            ),
-                            child: Text(
-                              "Sign in",
-                              style: josefin.s24.w700.withColor(
-                                AppColors.plainWhite,
+          child: GestureDetector(
+            onTap: () {
+              FocusScope.of(context).requestFocus(FocusNode());
+            },
+            child: Scaffold(
+              resizeToAvoidBottomInset: true,
+              backgroundColor: AppColors.darkBlue,
+              body: SingleChildScrollView(
+                child: SafeArea(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 30,
+                      vertical: 45,
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        const TitleText(),
+                        const SubtitleText(),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        BlocBuilder<SignInCubit, SignInState>(
+                          builder: (context, state) {
+                            return ErrorBox(
+                              errorText: "Invalid email",
+                              isShown: state.isEmailValidated,
+                            );
+                          },
+                        ),
+                        Builder(
+                          builder: (context) {
+                            final cubit = BlocProvider.of<SignInCubit>(context);
+                            return CustomTextField(
+                              maxLines: 1,
+                              labelText: "Email",
+                              trailingIcon: const Icon(FeatherIcons.mail),
+                              onTap: () => cubit.resetFields(),
+                              onChanged: (p0) => cubit.updateEmail(p0),
+                            );
+                          },
+                        ),
+                        BlocBuilder<SignInCubit, SignInState>(
+                          builder: (context, state) {
+                            return ErrorBox(
+                              errorText: "Invalid password",
+                              isShown: state.isPasswordValidated,
+                            );
+                          },
+                        ),
+                        Builder(
+                          builder: (context) {
+                            final bloc = BlocProvider.of<SignInCubit>(context);
+                            return CustomPasswordField(
+                              maxLines: 1,
+                              labelText: "Password",
+                              onTap: () => bloc.resetFields(),
+                              onChanged: (p0) => bloc.updatePassword(p0),
+                            );
+                          },
+                        ),
+                        const SizedBox(
+                          height: 50,
+                        ),
+                        const SignUpNavigationText(),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Builder(
+                          builder: (context) {
+                            return CustomButton(
+                              width: double.infinity,
+                              padding: const EdgeInsets.symmetric(vertical: 15),
+                              gradient: const LinearGradient(
+                                colors: [
+                                  Color(0xFF8E2DE2),
+                                  Color(0xFF4A00E0),
+                                ],
                               ),
-                            ),
-                            onTap: () {
-                              var cubit = context.read<SignInCubit>();
-                              bool validationRes = cubit.validateFields();
+                              child: Text(
+                                "Sign in",
+                                style: josefin.s24.w700.withColor(
+                                  AppColors.plainWhite,
+                                ),
+                              ),
+                              onTap: () {
+                                var cubit = context.read<SignInCubit>();
+                                bool validationRes = cubit.validateFields();
 
-                              if (validationRes) {
-                                cubit.signIn();
-                              }
-                            },
-                          );
-                        },
-                      ),
-                    ],
+                                if (validationRes) {
+                                  cubit.signIn();
+                                }
+                              },
+                            );
+                          },
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

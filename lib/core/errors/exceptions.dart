@@ -3,6 +3,7 @@ import 'package:flugo_mobile/core/errors/failure.dart';
 import 'package:flugo_mobile/locator.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 
+/// Internally used function to handle errors
 Future<Failure> errorHandler(Object error, Failure? defaultFailure) async {
   try {
     if (error is DioError) {

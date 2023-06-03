@@ -5,7 +5,9 @@ import 'package:flugo_mobile/features/auth/presentation/blocs/auth_cubit/auth_cu
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// Section with personal actions for the user
 class PersonalSection extends StatelessWidget {
+  /// Section with personal actions for the user
   const PersonalSection({
     super.key,
   });

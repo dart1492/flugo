@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:flugo_mobile/core/errors/failure.dart';
 
-typedef Json = Map<String, dynamic>;
+/// Future that can be failed and portrayed by Either object - Failure or Success
 typedef FutureFailable<T> = Future<Either<Failure, T>>;
-typedef Failable<T> = Either<Failure, T>;

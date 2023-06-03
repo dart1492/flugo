@@ -6,7 +6,9 @@ import 'package:flugo_mobile/core/routing/app_router.gr.dart';
 import 'package:flugo_mobile/core/styles/text_style.dart';
 import 'package:flutter/material.dart';
 
+/// Change avatar dialog with two options: change avatar and change frame
 class ChangeAvatarDialog extends StatelessWidget {
+  /// Change avatar dialog with two options: change avatar and change frame
   const ChangeAvatarDialog({
     super.key,
   });
