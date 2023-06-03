@@ -6,11 +6,15 @@ import 'package:flugo_mobile/features/jokes/domain/entities/joke_filters.dart';
 import 'package:flugo_mobile/features/jokes/domain/entities/paginated_indices.dart';
 import 'package:flugo_mobile/features/jokes/domain/entities/post_joke.dart';
 
+/// Repository for joke interactions
 class JokesRepository {
+  /// Associated datasource
   final JokesDatasource datasource;
 
+  /// Repository for joke interactions
   JokesRepository(this.datasource);
 
+  /// Get jokes from the datasource
   FutureFailable<List<GetJoke>> getJokes(
     PaginatedIndices page,
     JokeFilters filters,
@@ -25,6 +29,7 @@ class JokesRepository {
     );
   }
 
+  /// Add joke to the datasource
   FutureFailable<void> addJoke(PostJoke joke) {
     return RepositoryRequestHandler()(
       request: () => datasource.addJoke(joke),

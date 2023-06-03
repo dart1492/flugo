@@ -1,7 +1,10 @@
+// ignore_for_file: public_member_api_docs
+
 import 'package:equatable/equatable.dart';
 
 import 'error_model.dart';
 
+/// fAILURE class
 class Failure extends Equatable {
   @override
   List<Object> get props => [];

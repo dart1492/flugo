@@ -14,7 +14,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
+
+/// Screen where user creates joke
 class WriteJokeScreen extends StatefulWidget {
+  /// Screen where user creates joke
   const WriteJokeScreen({super.key});
 
   @override

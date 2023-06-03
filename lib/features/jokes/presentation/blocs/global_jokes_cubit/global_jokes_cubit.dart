@@ -8,15 +8,20 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 /// Filters for the jokes list we inject in related methods from another cubit.
 /// And query text we will get from yet another cubit that manages query textfield
 class GlobalJokesCubit extends Cubit<GlobalJokesState> {
-  static const int paginationSize = 5;
+  static const int _paginationSize = 5;
 
+  /// Associated repository
   final JokesRepository repository;
+
+  /// The cubit is responsible for retrieving jokes from the server and holding pagination indices,
+  /// Filters for the jokes list we inject in related methods from another cubit.
+  /// And query text we will get from yet another cubit that manages query textfield
   GlobalJokesCubit(this.repository)
       : super(
           InitialGlobalJokesState(
             page: PaginatedIndices(
               firstIndex: 0,
-              lastIndex: 0 + paginationSize,
+              lastIndex: 0 + _paginationSize,
             ),
           ),
         );
@@ -39,7 +44,7 @@ class GlobalJokesCubit extends Cubit<GlobalJokesState> {
         (r) {
           final PaginatedIndices newIndices = PaginatedIndices(
             firstIndex: prevIndices.lastIndex,
-            lastIndex: prevIndices.lastIndex + paginationSize,
+            lastIndex: prevIndices.lastIndex + _paginationSize,
           );
           emit(
             LoadedGlobalJokesState(

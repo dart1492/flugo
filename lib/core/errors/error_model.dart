@@ -1,3 +1,6 @@
+// ignore_for_file: public_member_api_docs
+
+// TODO: WHAT TO DO WITH THIS??
 class ErrorModel {
   String? property;
   List<String>? errors;

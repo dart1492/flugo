@@ -23,22 +23,20 @@ class JokesListElement extends StatelessWidget {
     return Card(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(5),
-        side: const BorderSide(
-          color: AppColors.darkerGrey,
-          width: 2.0,
-        ),
+        // side: const BorderSide(
+        //   color: AppColors.darkerGrey,
+        //   width: 2.0,
+        // ),
       ),
       color: AppColors.darkBlue,
       child: Theme(
-        data: ThemeData(highlightColor: AppColors.darkerGrey),
+        data: ThemeData(
+          highlightColor: const Color.fromARGB(159, 56, 54, 64),
+          splashColor: Colors.transparent,
+        ),
         child: ListTile(
-          splashColor: AppColors.darkerGrey,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(5),
-            side: const BorderSide(
-              color: AppColors.darkerGrey,
-              width: 2.0,
-            ),
           ),
           tileColor: Colors.transparent,
           onTap: () {

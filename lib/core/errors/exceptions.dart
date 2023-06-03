@@ -26,9 +26,3 @@ Future<Failure> errorHandler(Object error, Failure? defaultFailure) async {
     return const Failure();
   }
 }
-
-class ServerException implements Exception {}
-
-class CacheException implements Exception {}
-
-class GetTokenException implements Exception {}

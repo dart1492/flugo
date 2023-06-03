@@ -5,7 +5,10 @@ import 'package:flugo_mobile/features/jokes/presentation/blocs/joke_filters_cubi
 
 /// Cubit for managing joke filters state - to save those filters to local storage so that user could reuse them later
 class JokeFiltersCubit extends Cubit<JokeFiltersState> {
+  /// Associated repository
   final JokeFiltersRepository repo;
+
+  /// Cubit for managing joke filters state - to save those filters to local storage so that user could reuse them later
   JokeFiltersCubit(this.repo) : super(JokeFiltersState());
 
   /// Get filters from the local storage

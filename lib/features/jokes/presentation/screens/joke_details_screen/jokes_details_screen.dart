@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:flugo_mobile/core/components/custom_button.dart';
+import 'package:flugo_mobile/core/components/custom_highlighted_button.dart';
 import 'package:flugo_mobile/core/components/rounded_appbar.dart';
 import 'package:flugo_mobile/core/constants/app_colors.dart';
 import 'package:flugo_mobile/core/routing/app_router.gr.dart';
@@ -86,7 +86,13 @@ class JokesDetailsScreen extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    CustomButton(
+                    CustomHighlightedButton(
+                      child: Text(
+                        "Comment",
+                        style: josefin.s20.withColor(
+                          AppColors.plainWhite,
+                        ),
+                      ),
                       onTap: () {
                         context.router.push(
                           CommentsRoute(
@@ -95,19 +101,6 @@ class JokesDetailsScreen extends StatelessWidget {
                           ),
                         );
                       },
-                      color: AppColors.highlightedViolet.withOpacity(0.5),
-                      border: Border.all(
-                        color: AppColors.highlightedViolet,
-                      ),
-                      width: double.infinity,
-                      childAlignment: Alignment.center,
-                      padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: Text(
-                        "Comment",
-                        style: josefin.s20.withColor(
-                          AppColors.plainWhite,
-                        ),
-                      ),
                     ),
                   ],
                 ),

@@ -50,10 +50,15 @@ class CustomHighlightedButton extends StatelessWidget {
             color: AppColors.highlightedViolet,
           ),
         ),
-        width: width,
+        width: width ?? double.infinity,
         height: height,
-        padding: padding,
-        child: Container(alignment: childAlignment, child: child),
+        padding: padding ??
+            const EdgeInsets.symmetric(
+              vertical: 10,
+              horizontal: 15,
+            ),
+        child: Container(
+            alignment: childAlignment ?? Alignment.center, child: child),
       ),
     );
   }

@@ -5,6 +5,7 @@ import 'package:flugo_mobile/locator.dart';
 
 import 'presentation/blocs/profile_cubit/profile_cubit.dart';
 
+/// Setup dependencies for profile feature
 void setupProfileDependencies() {
   sl.registerLazySingleton<ProfileDatasource>(
     () => ProfileDatasourceImpl(

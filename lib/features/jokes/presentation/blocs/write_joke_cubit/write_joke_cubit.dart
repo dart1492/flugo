@@ -3,9 +3,12 @@ import 'package:flugo_mobile/features/jokes/domain/repositories/jokes_repository
 import 'package:flugo_mobile/features/jokes/presentation/blocs/write_joke_cubit/write_joke_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+/// Cubit responsible for holding states of write joke text fields and posting a joke
 class WriteJokeCubit extends Cubit<WriteJokeState> {
+  /// Associated repository
   final JokesRepository repo;
 
+  /// Cubit responsible for holding states of write joke text fields and posting a joke
   WriteJokeCubit(this.repo)
       : super(
           WriteJokeInitialState(
@@ -16,6 +19,7 @@ class WriteJokeCubit extends Cubit<WriteJokeState> {
           ),
         );
 
+  /// Post joke, gathering text values from current state
   void postJoke() async {
     final currentState = state as WriteJokeInitialState;
 
@@ -63,6 +67,7 @@ class WriteJokeCubit extends Cubit<WriteJokeState> {
     }
   }
 
+  /// reset field validation
   void resetFields() {
     if (state is WriteJokeInitialState) {
       emit(
@@ -72,6 +77,7 @@ class WriteJokeCubit extends Cubit<WriteJokeState> {
     }
   }
 
+  /// Update title text
   void updateTitle(String title) {
     if (state is WriteJokeInitialState) {
       final currentState = state as WriteJokeInitialState;
@@ -79,6 +85,7 @@ class WriteJokeCubit extends Cubit<WriteJokeState> {
     }
   }
 
+  /// Update content text
   void updateContent(String content) {
     if (state is WriteJokeInitialState) {
       final currentState = state as WriteJokeInitialState;
