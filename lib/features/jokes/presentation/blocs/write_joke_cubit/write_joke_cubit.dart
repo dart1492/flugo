@@ -81,7 +81,12 @@ class WriteJokeCubit extends Cubit<WriteJokeState> {
   void updateTitle(String title) {
     if (state is WriteJokeInitialState) {
       final currentState = state as WriteJokeInitialState;
-      emit(currentState.copyWith(title: title));
+      emit(
+        currentState.copyWith(
+          title: title,
+          isTitleValidated: true,
+        ),
+      );
     }
   }
 
@@ -89,7 +94,12 @@ class WriteJokeCubit extends Cubit<WriteJokeState> {
   void updateContent(String content) {
     if (state is WriteJokeInitialState) {
       final currentState = state as WriteJokeInitialState;
-      emit(currentState.copyWith(content: content));
+      emit(
+        currentState.copyWith(
+          content: content,
+          isContentValidated: true,
+        ),
+      );
     }
   }
 }

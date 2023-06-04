@@ -2,9 +2,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flugo_mobile/core/components/custom_highlighted_button.dart';
 import 'package:flugo_mobile/core/components/rounded_appbar.dart';
 import 'package:flugo_mobile/core/constants/app_colors.dart';
-import 'package:flugo_mobile/core/constants/image_names.dart';
+import 'package:flugo_mobile/core/constants/images/frame_names.dart';
+import 'package:flugo_mobile/core/constants/images/image_names.dart';
 import 'package:flugo_mobile/core/styles/text_style.dart';
-import 'package:flugo_mobile/core/util/custom_scroll_behavior.dart';
+import 'package:flugo_mobile/features/profile/presentation/screens/frames_screen/components/available_frames_grid.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -21,9 +22,11 @@ class FramesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO: MAYBE REPLACE WITH MAP - WHERE KEYS - COME FROM BACKEND AND VALUES ARE ASSET NAMES
     final List<String> availableFrameNames = [
-      ImageNames.crownAvatarFrame,
-      ImageNames.hornsAvatarFrame,
+      AvatarFrameNames.beardFrame,
+      AvatarFrameNames.crownFrame,
+      AvatarFrameNames.hornsFrame,
     ];
 
     return Scaffold(
@@ -69,7 +72,7 @@ class FramesScreen extends StatelessWidget {
                         decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage(
-                              ImageNames.hornsAvatarFrame,
+                              AvatarFrameNames.beardFrame,
                             ),
                           ),
                         ),
@@ -77,33 +80,8 @@ class FramesScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                Expanded(
-                  child: ScrollConfiguration(
-                    behavior: CustomBehavior(),
-                    child: GridView.builder(
-                      gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 3,
-                        crossAxisSpacing: 10,
-                        mainAxisSpacing: 10,
-                      ),
-                      itemCount: availableFrameNames.length,
-                      itemBuilder: (context, index) {
-                        return Container(
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                              color: AppColors.darkerGrey,
-                            ),
-                          ),
-                          child: Image.asset(
-                            availableFrameNames[index],
-                          ),
-                        );
-                      },
-                    ),
-                  ),
+                AvailableFramesGrid(
+                  availableFrameNames: availableFrameNames,
                 ),
                 const SizedBox(
                   height: 10,

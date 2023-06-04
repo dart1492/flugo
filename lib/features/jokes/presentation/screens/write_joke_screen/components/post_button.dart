@@ -20,7 +20,9 @@ class PostButton extends StatelessWidget {
       },
       child: Text(
         "Post",
-        style: josefin.s24.withColor(AppColors.plainWhite),
+        style: josefin.s24.withColor(
+          AppColors.plainWhite,
+        ),
       ),
     );
   }

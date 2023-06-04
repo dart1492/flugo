@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flugo_mobile/core/inversions/custom_bot_toasts.dart';
 import 'package:flugo_mobile/core/components/custom_text_field.dart';
 import 'package:flugo_mobile/core/constants/app_colors.dart';
-import 'package:flugo_mobile/core/constants/image_names.dart';
+import 'package:flugo_mobile/core/constants/images/image_names.dart';
 import 'package:flugo_mobile/core/util/custom_scroll_behavior.dart';
 import 'package:flugo_mobile/core/styles/text_style.dart';
 import 'package:flugo_mobile/core/components/error_box.dart';

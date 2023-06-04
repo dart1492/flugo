@@ -1,5 +1,5 @@
 import 'package:flugo_mobile/core/constants/app_colors.dart';
-import 'package:flugo_mobile/core/constants/image_names.dart';
+import 'package:flugo_mobile/core/constants/images/frame_names.dart';
 import 'package:flugo_mobile/features/profile/presentation/screens/profile_screen/components/sections/awards/award_tile.dart';
 import 'package:flugo_mobile/features/profile/presentation/screens/profile_screen/components/sections/awards/award_types/frame_award.dart';
 import 'package:flugo_mobile/features/profile/presentation/screens/profile_screen/components/sections/awards/award_types/title_award.dart';
@@ -35,7 +35,7 @@ class AwardsList extends StatelessWidget {
             isUnlocked: false,
             numberLikesRequired: 10,
             awardType: FrameAward(
-              ImageNames.crownAvatarFrame,
+              AvatarFrameNames.crownFrame,
             ),
           ),
           const SizedBox(
@@ -45,7 +45,17 @@ class AwardsList extends StatelessWidget {
             isUnlocked: false,
             numberLikesRequired: 15,
             awardType: FrameAward(
-              ImageNames.hornsAvatarFrame,
+              AvatarFrameNames.beardFrame,
+            ),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          AwardTile(
+            isUnlocked: false,
+            numberLikesRequired: 25,
+            awardType: FrameAward(
+              AvatarFrameNames.crownFrame,
             ),
           ),
         ],

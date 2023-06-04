@@ -1,5 +1,6 @@
 import 'package:flugo_mobile/core/constants/app_colors.dart';
-import 'package:flugo_mobile/core/constants/image_names.dart';
+import 'package:flugo_mobile/core/constants/images/frame_names.dart';
+import 'package:flugo_mobile/core/constants/images/image_names.dart';
 import 'package:flugo_mobile/features/profile/presentation/screens/profile_screen/components/sections/avatar/change_avatar_dialog.dart';
 import 'package:flutter/material.dart';
 
@@ -42,7 +43,7 @@ class AvatarIcon extends StatelessWidget {
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
-                      ImageNames.hornsAvatarFrame,
+                      AvatarFrameNames.beardFrame,
                     ),
                   ),
                 ),

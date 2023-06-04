@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flugo_mobile/core/constants/app_colors.dart';
-import 'package:flugo_mobile/core/constants/image_names.dart';
+import 'package:flugo_mobile/core/constants/images/image_names.dart';
 import 'package:flugo_mobile/core/styles/text_style.dart';
 import 'package:flugo_mobile/features/jokes/presentation/blocs/global_jokes_cubit/global_jokes_cubit.dart';
 import 'package:flugo_mobile/features/jokes/presentation/blocs/joke_filters_cubit/joke_filters_cubit.dart';

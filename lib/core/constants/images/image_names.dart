@@ -9,12 +9,6 @@ class ImageNames {
 
   static const String kiwiGIF = "assets/gif_assets/kiwi.gif";
 
-  static const String crownAvatarFrame =
-      "assets/image_assets/crown_avatar_frame.png";
-
-  static const String hornsAvatarFrame =
-      "assets/image_assets/horns_avatar_frame.png";
-
   static const String userDefaultIcon =
       "assets/image_assets/user_default_icon.png";
 
