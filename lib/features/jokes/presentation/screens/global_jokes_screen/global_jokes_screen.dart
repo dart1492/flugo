@@ -47,7 +47,9 @@ class _GlobalJokesScreenState extends State<GlobalJokesScreen> {
                   children: [
                     Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 2, vertical: 10),
+                        horizontal: 2,
+                        vertical: 10,
+                      ),
                       alignment: Alignment.centerLeft,
                       child: Row(
                         children: [
@@ -71,6 +73,9 @@ class _GlobalJokesScreenState extends State<GlobalJokesScreen> {
                           ),
                         ],
                       ),
+                    ),
+                    const SizedBox(
+                      height: 10,
                     ),
                     const SearchTextfield(),
                     const Expanded(

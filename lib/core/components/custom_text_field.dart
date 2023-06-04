@@ -25,6 +25,8 @@ class CustomTextField extends StatelessWidget {
 
   final int? charLimit;
 
+  final FocusNode? focusNode;
+
   /// Custom textfield with predefined decoration
   const CustomTextField({
     super.key,
@@ -37,12 +39,14 @@ class CustomTextField extends StatelessWidget {
     this.contentPadding,
     this.controller,
     this.maxLines,
+    this.focusNode,
     this.charLimit,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
+      focusNode: focusNode,
       maxLength: charLimit,
       controller: controller,
       maxLines: maxLines,
