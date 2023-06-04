@@ -13,4 +13,6 @@ class ImageNames {
       "assets/image_assets/user_default_icon.png";
 
   static const String userStockIcon = "assets/image_assets/user_stock_icon.jpg";
+
+  static const String logoImage = "assets/image_assets/logo_main.png";
 }

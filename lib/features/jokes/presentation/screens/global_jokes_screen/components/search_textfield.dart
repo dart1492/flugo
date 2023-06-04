@@ -83,11 +83,11 @@ class _SearchTextfieldState extends State<SearchTextfield> {
             padding: const EdgeInsets.all(5),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
-              border: Border.all(
-                color: isFocused
-                    ? AppColors.highlightedViolet
-                    : AppColors.darkerGrey,
-              ),
+              // border: Border.all(
+              //   color: isFocused
+              //       ? AppColors.highlightedViolet
+              //       : AppColors.darkerGrey,
+              // ),
             ),
             child: const Icon(
               FeatherIcons.filter,

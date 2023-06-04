@@ -16,6 +16,15 @@ class BottomNavBarScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
+      transitionBuilder: (context, child, animation) {
+        return SlideTransition(
+          position: Tween<Offset>(
+            begin: const Offset(1.0, 0.0),
+            end: Offset.zero,
+          ).animate(animation),
+          child: child,
+        );
+      },
       backgroundColor: AppColors.darkBlue,
       routes: const [
         GlobalJokesRoute(),
@@ -28,9 +37,16 @@ class BottomNavBarScreen extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 5),
           decoration: BoxDecoration(
             color: AppColors.lightBlue,
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.circular(
+              5,
+            ),
           ),
           child: SalomonBottomBar(
+            itemShape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(
+                5,
+              ),
+            ),
             items: [
               SalomonBottomBarItem(
                 unselectedColor: const Color.fromARGB(195, 255, 255, 255),

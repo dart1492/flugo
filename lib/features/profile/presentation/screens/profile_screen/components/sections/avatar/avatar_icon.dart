@@ -52,7 +52,7 @@ class AvatarIcon extends StatelessWidget {
           ),
         ),
         Positioned(
-          right: 20,
+          right: 10,
           bottom: 10,
           child: InkWell(
             onTap: () {
@@ -62,17 +62,25 @@ class AvatarIcon extends StatelessWidget {
                 builder: (context) => const ChangeAvatarDialog(),
               );
             },
-            customBorder: const CircleBorder(),
+            borderRadius: BorderRadius.circular(
+              5,
+            ),
             child: Container(
               height: 50,
               width: 50,
-              decoration: const BoxDecoration(
-                color: Color.fromARGB(133, 158, 158, 158),
-                shape: BoxShape.circle,
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                shape: BoxShape.rectangle,
+                border: Border.all(
+                  color: AppColors.lightGreen,
+                ),
+                borderRadius: BorderRadius.circular(
+                  5,
+                ),
               ),
               child: const Icon(
                 Icons.create,
-                color: AppColors.plainWhite,
+                color: AppColors.lightGreen,
               ),
             ),
           ),
