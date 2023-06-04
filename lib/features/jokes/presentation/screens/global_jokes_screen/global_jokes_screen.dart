@@ -33,48 +33,51 @@ class _GlobalJokesScreenState extends State<GlobalJokesScreen> {
             context.read<JokeFiltersCubit>().getFilters(),
             '',
           ),
-        child: Scaffold(
-          backgroundColor: AppColors.darkBlue,
-          body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 15,
-                vertical: 15,
-              ),
-              child: Column(
-                children: [
-                  Container(
-                    padding:
-                        const EdgeInsets.symmetric(horizontal: 2, vertical: 10),
-                    alignment: Alignment.centerLeft,
-                    child: Row(
-                      children: [
-                        Text(
-                          "Have fun!",
-                          style: josefin.s32.w700
-                              .withColor(AppColors.highlightedViolet),
-                        ),
-                        const Expanded(
-                          child: SizedBox(),
-                        ),
-                        Container(
-                          height: 50,
-                          width: 50,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            image: const DecorationImage(
-                              image: AssetImage(ImageNames.laughGIF),
+        child: GestureDetector(
+          onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+          child: Scaffold(
+            backgroundColor: AppColors.darkBlue,
+            body: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 15,
+                  vertical: 15,
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 2, vertical: 10),
+                      alignment: Alignment.centerLeft,
+                      child: Row(
+                        children: [
+                          Text(
+                            "Have fun!",
+                            style: josefin.s32.w700
+                                .withColor(AppColors.highlightedViolet),
+                          ),
+                          const Expanded(
+                            child: SizedBox(),
+                          ),
+                          Container(
+                            height: 50,
+                            width: 50,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(15),
+                              image: const DecorationImage(
+                                image: AssetImage(ImageNames.laughGIF),
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                  const SearchTextfield(),
-                  const Expanded(
-                    child: JokesList(),
-                  ),
-                ],
+                    const SearchTextfield(),
+                    const Expanded(
+                      child: JokesList(),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),

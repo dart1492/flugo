@@ -73,166 +73,170 @@ class _WriteJokeScreenState extends State<WriteJokeScreen> {
       create: (context) => sl<WriteJokeCubit>(),
       child: BlocListener<WriteJokeCubit, WriteJokeState>(
         listener: (context, state) => _listener(context, state),
-        child: Scaffold(
-          backgroundColor: AppColors.darkBlue,
-          body: SafeArea(
-            child: Stack(
-              alignment: Alignment.bottomCenter,
-              children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                  child: ScrollConfiguration(
-                    behavior: CustomBehavior(),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Row(
-                            children: [
-                              Text(
-                                "Time to write",
-                                style: josefin.s32.w700
-                                    .withColor(AppColors.highlightedViolet),
-                              ),
-                              const Expanded(
-                                child: SizedBox(),
-                              ),
-                              Container(
-                                height: 50,
-                                width: 50,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(
-                                    15,
-                                  ),
-                                  image: const DecorationImage(
-                                    image: AssetImage(
-                                      ImageNames.laugh2GIF,
+        child: GestureDetector(
+          onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+          child: Scaffold(
+            backgroundColor: AppColors.darkBlue,
+            body: SafeArea(
+              child: Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 15, vertical: 15),
+                    child: ScrollConfiguration(
+                      behavior: CustomBehavior(),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Row(
+                              children: [
+                                Text(
+                                  "Time to write",
+                                  style: josefin.s32.w700
+                                      .withColor(AppColors.highlightedViolet),
+                                ),
+                                const Expanded(
+                                  child: SizedBox(),
+                                ),
+                                Container(
+                                  height: 50,
+                                  width: 50,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(
+                                      15,
+                                    ),
+                                    image: const DecorationImage(
+                                      image: AssetImage(
+                                        ImageNames.laugh2GIF,
+                                      ),
                                     ),
                                   ),
-                                ),
-                              )
-                            ],
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            height: 50,
-                            child: Row(
-                              children: [
-                                Text(
-                                  "Name your joke:",
-                                  style: josefin.s20.withColor(
-                                    AppColors.plainWhite,
-                                  ),
-                                ),
-                                const Expanded(child: SizedBox()),
-                                BlocBuilder<WriteJokeCubit, WriteJokeState>(
-                                  buildWhen: (previous, current) =>
-                                      _buildErrorBoxWhen(previous, current),
-                                  builder: (context, state) {
-                                    if (state is WriteJokeInitialState) {
-                                      return ErrorBox(
-                                        errorText: 'Invalid title',
-                                        isShown: state.isTitleValidated,
-                                      );
-                                    } else {
-                                      return const SizedBox();
-                                    }
-                                  },
-                                ),
+                                )
                               ],
                             ),
-                          ),
-                          Builder(
-                            builder: (context) {
-                              var cubit = context.read<WriteJokeCubit>();
-                              return CustomTextField(
-                                controller: titleController,
-                                maxLines: null,
-                                onTap: () {
-                                  cubit.resetFields();
-                                },
-                                onChanged: (p0) {
-                                  cubit.updateTitle(p0);
-                                },
-                              );
-                            },
-                          ),
-                          Container(
-                            alignment: Alignment.centerLeft,
-                            height: 50,
-                            child: Row(
-                              children: [
-                                Text(
-                                  "And write it here:",
-                                  style: josefin.s20.withColor(
-                                    AppColors.plainWhite,
-                                  ),
-                                ),
-                                const Expanded(child: SizedBox()),
-                                BlocBuilder<WriteJokeCubit, WriteJokeState>(
-                                  buildWhen: (previous, current) =>
-                                      _buildErrorBoxWhen(previous, current),
-                                  builder: (context, state) {
-                                    if (state is WriteJokeInitialState) {
-                                      return ErrorBox(
-                                        errorText: 'Invalid content',
-                                        isShown: state.isContentValidated,
-                                      );
-                                    } else {
-                                      return const SizedBox();
-                                    }
-                                  },
-                                ),
-                              ],
+                            const SizedBox(
+                              height: 10,
                             ),
-                          ),
-                          Builder(
-                            builder: (context) {
-                              var cubit = context.read<WriteJokeCubit>();
-                              return CustomTextField(
-                                controller: contentController,
-                                onTap: () {
-                                  cubit.resetFields();
-                                },
-                                onChanged: (p0) {
-                                  cubit.updateContent(p0);
-                                },
-                                maxLines: null,
-                              );
-                            },
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          Align(
-                            alignment: Alignment.center,
-                            child: BlocBuilder<WriteJokeCubit, WriteJokeState>(
-                              builder: (context, state) {
-                                if (state is PostingJoke) {
-                                  return const SizedBox(
-                                    width: 40,
-                                    height: 40,
-                                    child: CircularProgressIndicator(),
-                                  );
-                                } else {
-                                  return const PostButton();
-                                }
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              height: 50,
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "Name your joke:",
+                                    style: josefin.s20.withColor(
+                                      AppColors.plainWhite,
+                                    ),
+                                  ),
+                                  const Expanded(child: SizedBox()),
+                                  BlocBuilder<WriteJokeCubit, WriteJokeState>(
+                                    buildWhen: (previous, current) =>
+                                        _buildErrorBoxWhen(previous, current),
+                                    builder: (context, state) {
+                                      if (state is WriteJokeInitialState) {
+                                        return ErrorBox(
+                                          errorText: 'Invalid title',
+                                          isShown: state.isTitleValidated,
+                                        );
+                                      } else {
+                                        return const SizedBox();
+                                      }
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Builder(
+                              builder: (context) {
+                                var cubit = context.read<WriteJokeCubit>();
+                                return CustomTextField(
+                                  controller: titleController,
+                                  maxLines: null,
+                                  onTap: () {
+                                    cubit.resetFields();
+                                  },
+                                  onChanged: (p0) {
+                                    cubit.updateTitle(p0);
+                                  },
+                                );
                               },
                             ),
-                          ),
-                        ],
+                            Container(
+                              alignment: Alignment.centerLeft,
+                              height: 50,
+                              child: Row(
+                                children: [
+                                  Text(
+                                    "And write it here:",
+                                    style: josefin.s20.withColor(
+                                      AppColors.plainWhite,
+                                    ),
+                                  ),
+                                  const Expanded(child: SizedBox()),
+                                  BlocBuilder<WriteJokeCubit, WriteJokeState>(
+                                    buildWhen: (previous, current) =>
+                                        _buildErrorBoxWhen(previous, current),
+                                    builder: (context, state) {
+                                      if (state is WriteJokeInitialState) {
+                                        return ErrorBox(
+                                          errorText: 'Invalid content',
+                                          isShown: state.isContentValidated,
+                                        );
+                                      } else {
+                                        return const SizedBox();
+                                      }
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Builder(
+                              builder: (context) {
+                                var cubit = context.read<WriteJokeCubit>();
+                                return CustomTextField(
+                                  controller: contentController,
+                                  onTap: () {
+                                    cubit.resetFields();
+                                  },
+                                  onChanged: (p0) {
+                                    cubit.updateContent(p0);
+                                  },
+                                  maxLines: null,
+                                );
+                              },
+                            ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Align(
+                              alignment: Alignment.center,
+                              child:
+                                  BlocBuilder<WriteJokeCubit, WriteJokeState>(
+                                builder: (context, state) {
+                                  if (state is PostingJoke) {
+                                    return const SizedBox(
+                                      width: 40,
+                                      height: 40,
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  } else {
+                                    return const PostButton();
+                                  }
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

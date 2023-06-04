@@ -109,6 +109,7 @@ class CTextStyle extends TextStyle {
 
   CTextStyle get s96 => copyWith(fontSize: 96);
 
+  CTextStyle get s94 => copyWith(fontSize: 94);
   // weights
   CTextStyle get w100 => copyWith(fontWeight: FontWeight.w100);
 
