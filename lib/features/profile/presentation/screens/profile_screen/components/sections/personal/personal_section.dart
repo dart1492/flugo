@@ -29,9 +29,9 @@ class PersonalSection extends StatelessWidget {
         Container(
           height: 110,
           decoration: BoxDecoration(
-            border: Border.all(
-              color: AppColors.lightRed,
-            ),
+            // border: Border.all(
+            //   color: AppColors.lightRed,
+            // ),
             borderRadius: BorderRadius.circular(5),
           ),
           padding: const EdgeInsets.symmetric(
@@ -65,9 +65,9 @@ class PersonalSection extends StatelessWidget {
                   vertical: 10,
                   horizontal: 10,
                 ),
-                color: AppColors.lightRed.withOpacity(0.5),
+                color: AppColors.lightGreen.withOpacity(0.5),
                 border: Border.all(
-                  color: AppColors.lightRed,
+                  color: AppColors.lightGreen,
                 ),
                 onTap: () => context.read<AuthCubit>().eraseToken(),
                 child: Text(

@@ -64,11 +64,11 @@ class ProfileScreen extends StatelessWidget {
                           SizedBox(
                             height: 20,
                           ),
-                          AwardsSection(),
+                          BioSection(),
                           SizedBox(
                             height: 20,
                           ),
-                          BioSection(),
+                          AwardsSection(),
                           SizedBox(
                             height: 20,
                           ),

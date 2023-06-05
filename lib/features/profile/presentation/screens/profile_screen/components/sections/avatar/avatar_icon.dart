@@ -43,7 +43,7 @@ class AvatarIcon extends StatelessWidget {
                 decoration: const BoxDecoration(
                   image: DecorationImage(
                     image: AssetImage(
-                      AvatarFrameNames.beardFrame,
+                      AvatarFrameNames.crownFrame,
                     ),
                   ),
                 ),

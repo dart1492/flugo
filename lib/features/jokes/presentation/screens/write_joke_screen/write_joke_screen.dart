@@ -104,15 +104,15 @@ class _WriteJokeScreenState extends State<WriteJokeScreen> {
                                   child: SizedBox(),
                                 ),
                                 Container(
-                                  height: 50,
-                                  width: 50,
+                                  height: 40,
+                                  width: 40,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(
                                       15,
                                     ),
                                     image: const DecorationImage(
                                       image: AssetImage(
-                                        ImageNames.laugh2GIF,
+                                        ImageNames.logoImage,
                                       ),
                                     ),
                                   ),

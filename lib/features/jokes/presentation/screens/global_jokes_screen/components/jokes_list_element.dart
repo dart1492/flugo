@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:custom_pop_up_menu/custom_pop_up_menu.dart';
 import 'package:flugo_mobile/core/components/dialog_option.dart';
+import 'package:flugo_mobile/core/components/icon_widgets/custom_more_horiz_icon.dart';
 import 'package:flugo_mobile/core/constants/app_colors.dart';
 import 'package:flugo_mobile/core/routing/app_router.gr.dart';
 import 'package:flugo_mobile/core/styles/text_style.dart';
@@ -49,15 +50,11 @@ class JokesListElement extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 InkWell(
-                  highlightColor: const Color.fromARGB(136, 115, 97, 255),
+                  highlightColor: AppColors.darkerGrey,
                   splashColor: Colors.transparent,
                   borderRadius: BorderRadius.circular(5),
                   onTap: () {},
                   child: Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: AppColors.highlightedViolet),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
                     padding: const EdgeInsets.symmetric(
                       horizontal: 5,
                       vertical: 5,
@@ -65,7 +62,7 @@ class JokesListElement extends StatelessWidget {
                     child: const Icon(
                       FeatherIcons.heart,
                       color: AppColors.highlightedViolet,
-                      size: 20,
+                      size: 22,
                     ),
                   ),
                 ),
@@ -123,17 +120,9 @@ class JokesListElement extends StatelessWidget {
                   },
                   pressType: PressType.singleClick,
                   child: Container(
-                    padding: const EdgeInsets.all(5),
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                        color: AppColors.lightGreen,
-                      ),
-                      borderRadius: BorderRadius.circular(5),
-                    ),
-                    child: const Icon(
-                      Icons.more_horiz,
-                      size: 20,
-                      color: AppColors.lightGreen,
+                    padding: const EdgeInsets.fromLTRB(5, 10, 5, 10),
+                    child: const CustomMoreHorizIcon(
+                      size: 6,
                     ),
                   ),
                 ),
