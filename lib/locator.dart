@@ -6,6 +6,7 @@ import 'package:flugo_mobile/features/comments/injection.dart';
 import 'package:flugo_mobile/features/jokes/injection.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
+import 'package:logger/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 ///  Get it instance
@@ -14,6 +15,7 @@ final sl = GetIt.instance;
 /// Setup locator function - registers all dependencies,
 ///  needed on the start of this app
 Future setupLocator() async {
+  sl.registerLazySingleton<Logger>(() => Logger());
   sl.registerSingleton<AppRouter>(
     AppRouter(),
   );
@@ -31,7 +33,7 @@ Future setupLocator() async {
   setupCommentsDependencies();
 
   sl.registerSingleton<Dio>(
-    Dio()
+    Dio(BaseOptions(baseUrl: "https://flugo-api.fly.dev"))
       ..interceptors.add(
         ApiInterceptor(
           tokenRepo: sl(),

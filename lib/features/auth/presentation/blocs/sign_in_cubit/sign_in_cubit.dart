@@ -1,4 +1,5 @@
 import 'package:flugo_mobile/core/constants/regular_expressions.dart';
+import 'package:flugo_mobile/features/auth/data/models/sign_in_data_model.dart';
 import 'package:flugo_mobile/features/auth/domain/repositories/auth_repository.dart';
 import 'package:flugo_mobile/features/auth/presentation/blocs/form_submission_status.dart';
 import 'package:flugo_mobile/features/auth/presentation/blocs/sign_in_cubit/sign_in_state.dart';
@@ -15,8 +16,10 @@ class SignInCubit extends Cubit<SignInState> {
   SignInCubit(this.repository)
       : super(
           SignInState(
-            email: '',
-            password: '',
+            data: SignInDataModel(
+              email: "",
+              password: "",
+            ),
             isEmailValidated: true,
             isPasswordValidated: true,
             status: const InitialFormStatus(),
@@ -25,10 +28,13 @@ class SignInCubit extends Cubit<SignInState> {
 
   /// Validate current state of fields and show/hide boxes
   bool validateFields() {
-    bool isEmailValidated =
-        RegularExpressions.emailValidationPattern.hasMatch(state.email);
+    bool isEmailValidated = RegularExpressions.emailValidationPattern.hasMatch(
+      state.data.email,
+    );
     bool isPasswordValidated =
-        RegularExpressions.passwordValidationPattern.hasMatch(state.password);
+        RegularExpressions.passwordValidationPattern.hasMatch(
+      state.data.password,
+    );
 
     emit(
       state.copyWith(
@@ -81,9 +87,9 @@ class SignInCubit extends Cubit<SignInState> {
         status: FormSubmitting(),
       ),
     );
+
     var result = await repository.signIn(
-      state.email,
-      state.password,
+      state.data,
     );
 
     result.fold(
@@ -95,7 +101,7 @@ class SignInCubit extends Cubit<SignInState> {
       (r) {
         emit(
           state.copyWith(
-            status: SubmissionSuccess(bearerToken: r.token),
+            status: SubmissionSuccess(bearerToken: r.bearerToken),
           ),
         );
       },

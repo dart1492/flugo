@@ -1,4 +1,6 @@
 import 'package:flugo_mobile/core/constants/regular_expressions.dart';
+import 'package:flugo_mobile/features/auth/data/models/sign_in_data_model.dart';
+import 'package:flugo_mobile/features/auth/data/models/sign_up_data_model.dart';
 import 'package:flugo_mobile/features/auth/domain/repositories/auth_repository.dart';
 import 'package:flugo_mobile/features/auth/presentation/blocs/form_submission_status.dart';
 import 'package:flugo_mobile/features/auth/presentation/blocs/sign_up_cubit/sign_up_state.dart';
@@ -15,9 +17,11 @@ class SignUpCubit extends Cubit<SignUpState> {
   SignUpCubit(this.repository)
       : super(
           SignUpState(
-            displayName: '',
-            email: '',
-            password: '',
+            data: SignUpDataModel(
+              email: '',
+              password: '',
+              username: '',
+            ),
             isDisplayNameValidated: true,
             isEmailValidated: true,
             isPasswordValidated: true,
@@ -28,26 +32,22 @@ class SignUpCubit extends Cubit<SignUpState> {
   /// Validate values of the field
   bool validateFields() {
     bool isEmailValidated = RegularExpressions.emailValidationPattern.hasMatch(
-      state.email,
+      state.data.email,
     );
     bool isPasswordValidated =
         RegularExpressions.passwordValidationPattern.hasMatch(
-      state.password,
-    );
-    bool isDisplayNameValidated =
-        RegularExpressions.displayNameValidationPattern.hasMatch(
-      state.displayName,
+      state.data.password,
     );
 
     emit(
       state.copyWith(
         isEmailValidated: isEmailValidated,
         isPasswordValidated: isPasswordValidated,
-        isDisplayNameValidated: isDisplayNameValidated,
+        isDisplayNameValidated: true,
       ),
     );
 
-    if (isDisplayNameValidated && isEmailValidated && isPasswordValidated) {
+    if (isEmailValidated && isPasswordValidated) {
       return true;
     } else {
       return false;
@@ -61,6 +61,14 @@ class SignUpCubit extends Cubit<SignUpState> {
         isEmailValidated: true,
         isPasswordValidated: true,
         isDisplayNameValidated: true,
+      ),
+    );
+  }
+
+  void resetFormStatus() {
+    emit(
+      state.copyWith(
+        status: const InitialFormStatus(),
       ),
     );
   }
@@ -103,22 +111,45 @@ class SignUpCubit extends Cubit<SignUpState> {
       ),
     );
     var result = await repository.signUp(
-      state.displayName,
-      state.email,
-      state.password,
+      state.data,
     );
 
     result.fold(
       (l) => emit(
         state.copyWith(
-          status: SubmissionFailed(l.errorMessage),
+          status: SubmissionFailed(
+            l.errorMessage,
+          ),
         ),
       ),
-      (r) => emit(
-        state.copyWith(
-          status: SubmissionSuccess(bearerToken: r.token),
-        ),
-      ),
+      (r) async {
+        print(
+          state.data.email,
+        );
+        // do sign in if the sign up operation was successful
+        final signInResult = await repository.signIn(
+          SignInDataModel(
+            email: state.data.email,
+            password: state.data.password,
+          ),
+        );
+        signInResult.fold(
+          (l) => emit(
+            state.copyWith(
+              status: SubmissionFailed(
+                l.errorMessage,
+              ),
+            ),
+          ),
+          (r) => emit(
+            state.copyWith(
+              status: SubmissionSuccess(
+                bearerToken: r.bearerToken,
+              ),
+            ),
+          ),
+        );
+      },
     );
   }
 }

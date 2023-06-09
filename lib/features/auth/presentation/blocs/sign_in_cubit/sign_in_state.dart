@@ -1,17 +1,16 @@
 // ignore_for_file: public_member_api_docs
 
+import 'package:flugo_mobile/features/auth/domain/entities/sign_in_data.dart';
 import 'package:flugo_mobile/features/auth/presentation/blocs/form_submission_status.dart';
 
 class SignInState {
-  final String email;
-  final String password;
+  SignInData data;
   final bool isEmailValidated;
   final bool isPasswordValidated;
   final FormSubmissionStatus status;
 
   SignInState({
-    required this.email,
-    required this.password,
+    required this.data,
     required this.isEmailValidated,
     required this.isPasswordValidated,
     required this.status,
@@ -25,8 +24,7 @@ class SignInState {
     FormSubmissionStatus? status,
   }) {
     return SignInState(
-      email: email ?? this.email,
-      password: password ?? this.password,
+      data: data.copyWith(email: email, password: password),
       isEmailValidated: isEmailValidated ?? this.isEmailValidated,
       isPasswordValidated: isPasswordValidated ?? this.isPasswordValidated,
       status: status ?? this.status,

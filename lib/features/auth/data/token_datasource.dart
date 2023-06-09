@@ -1,6 +1,8 @@
 // ignore_for_file: public_member_api_docs
 
 import 'package:flugo_mobile/core/constants/local_storage_keys.dart';
+import 'package:flugo_mobile/locator.dart';
+import 'package:logger/logger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 /// Interacts with shared prefs directly to store and get accessToken
@@ -20,7 +22,9 @@ class TokenDatasourceImpl extends TokenDatasource {
 
   @override
   Future<String?> getToken() async {
-    return sp.getString(LocalStorageKeys.accessToken);
+    final result = sp.getString(LocalStorageKeys.accessToken);
+    sl<Logger>().i(result);
+    return result;
   }
 
   @override
