@@ -65,6 +65,7 @@ class SignUpCubit extends Cubit<SignUpState> {
     );
   }
 
+  /// reset error status to hide dialogs
   void resetFormStatus() {
     emit(
       state.copyWith(
@@ -94,10 +95,10 @@ class SignUpCubit extends Cubit<SignUpState> {
   }
 
   /// Update password value
-  void updateDisplayName(String displayName) {
+  void updateUsername(String username) {
     emit(
       state.copyWith(
-        password: displayName,
+        username: username,
         isDisplayNameValidated: true,
       ),
     );
@@ -110,6 +111,7 @@ class SignUpCubit extends Cubit<SignUpState> {
         status: FormSubmitting(),
       ),
     );
+
     var result = await repository.signUp(
       state.data,
     );
@@ -123,9 +125,6 @@ class SignUpCubit extends Cubit<SignUpState> {
         ),
       ),
       (r) async {
-        print(
-          state.data.email,
-        );
         // do sign in if the sign up operation was successful
         final signInResult = await repository.signIn(
           SignInDataModel(

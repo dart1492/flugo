@@ -7,6 +7,8 @@ import 'package:flugo_mobile/features/profile/domain/entities/profile.dart';
 abstract class ProfileDatasource {
   Future<Profile> getProfileInfo();
 
+  Future<void> updateBio(String newBio);
+
   //TODO: ADD METHODS FOR PROFILE UPDATING
 }
 
@@ -18,7 +20,12 @@ class ProfileDatasourceImpl extends ProfileDatasource {
 
   @override
   Future<Profile> getProfileInfo() async {
-    //TODO: CREATE THIS METHOD
-    return ProfileModel(name: "dart", bio: "Bio ", email: "dart78@ukr.net");
+    final result = await dio.get("/me");
+    return ProfileModel.fromMap(result.data);
+  }
+
+  @override
+  Future<void> updateBio(String newBio) async {
+    await dio.put("/me/bio", data: {"bio": newBio});
   }
 }

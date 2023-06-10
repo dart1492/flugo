@@ -25,7 +25,15 @@ class ApiInterceptor extends Interceptor {
       options.headers['Authorization'] = "Bearer $r";
     });
 
+    sl<Logger>().i(options.data);
     sl<Logger>().i(options.headers);
     super.onRequest(options, handler);
+  }
+
+  @override
+  void onResponse(Response response, ResponseInterceptorHandler handler) {
+    sl<Logger>().i(response.data);
+    // TODO: implement onResponse
+    super.onResponse(response, handler);
   }
 }

@@ -17,4 +17,11 @@ class ProfileRepository {
       request: () => datasource.getProfileInfo(),
     );
   }
+
+  /// Update user's bio on the server
+  FutureFailable<void> updateBio(String newBio) {
+    return RepositoryRequestHandler()(
+      request: () => datasource.updateBio(newBio),
+    );
+  }
 }

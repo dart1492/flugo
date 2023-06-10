@@ -46,6 +46,7 @@ class SignInScreen extends StatelessWidget {
     if (state.status is SubmissionFailed) {
       var status = state.status as SubmissionFailed;
       _showDialog(context, status.errorMessage);
+      context.read<SignInCubit>().resetFormStatus();
     }
   }
 

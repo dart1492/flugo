@@ -4,6 +4,7 @@ import 'package:flugo_mobile/core/util/api_interceptor.dart';
 import 'package:flugo_mobile/features/auth/injection.dart';
 import 'package:flugo_mobile/features/comments/injection.dart';
 import 'package:flugo_mobile/features/jokes/injection.dart';
+import 'package:flugo_mobile/features/profile/injection.dart';
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:logger/logger.dart';
@@ -31,6 +32,7 @@ Future setupLocator() async {
   setupAuthDependencies();
   setupJokesDependencies();
   setupCommentsDependencies();
+  setupProfileDependencies();
 
   sl.registerSingleton<Dio>(
     Dio(BaseOptions(baseUrl: "https://flugo-api.fly.dev"))

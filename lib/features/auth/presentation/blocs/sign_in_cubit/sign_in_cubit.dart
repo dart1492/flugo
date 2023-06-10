@@ -107,4 +107,13 @@ class SignInCubit extends Cubit<SignInState> {
       },
     );
   }
+
+  /// reset error status to hide dialogs
+  void resetFormStatus() {
+    emit(
+      state.copyWith(
+        status: const InitialFormStatus(),
+      ),
+    );
+  }
 }

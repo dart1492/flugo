@@ -90,7 +90,7 @@ class SignUpScreen extends StatelessWidget {
                             final bloc = context.read<SignUpCubit>();
                             return CustomTextField(
                               maxLines: 1,
-                              onChanged: (p0) => bloc.updateDisplayName(p0),
+                              onChanged: (p0) => bloc.updateUsername(p0),
                               onTap: () => bloc.resetFieldErrors(),
                               labelText: "Display name",
                               trailingIcon: const Icon(FeatherIcons.user),
