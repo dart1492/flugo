@@ -68,7 +68,7 @@ class JokesDetailsScreen extends StatelessWidget {
                             ),
                             Text(
                               joke.text,
-                              textAlign: TextAlign.justify,
+                              // textAlign: TextAlign.justify,
                               style: josefin.s24.h13.withColor(
                                 AppColors.grey,
                               ),
