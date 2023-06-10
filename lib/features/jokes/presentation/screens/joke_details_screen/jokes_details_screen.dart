@@ -49,22 +49,29 @@ class JokesDetailsScreen extends StatelessWidget {
                             ),
                             Text(
                               joke.title,
-                              style:
-                                  josefin.s36.withColor(AppColors.plainWhite),
+                              style: josefin.s32.withColor(
+                                AppColors.plainWhite,
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 5,
                             ),
                             Container(
                               width: double.infinity,
                               height: 2,
                               decoration: const BoxDecoration(
-                                  color: AppColors.highlightedViolet),
+                                color: AppColors.highlightedViolet,
+                              ),
                             ),
                             const SizedBox(
                               height: 20,
                             ),
                             Text(
-                              joke.content,
+                              joke.text,
                               textAlign: TextAlign.justify,
-                              style: josefin.s24.h13.withColor(AppColors.grey),
+                              style: josefin.s24.h13.withColor(
+                                AppColors.grey,
+                              ),
                             ),
                             const SizedBox(
                               height: 10,
@@ -97,7 +104,7 @@ class JokesDetailsScreen extends StatelessWidget {
                         context.router.push(
                           CommentsRoute(
                             // TODO REPLACE WITH ID
-                            jokeId: 1,
+                            jokeId: joke.id,
                           ),
                         );
                       },

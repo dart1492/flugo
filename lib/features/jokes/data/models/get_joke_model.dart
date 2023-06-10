@@ -5,20 +5,19 @@ import 'dart:convert';
 import 'package:flugo_mobile/features/jokes/domain/entities/get_joke.dart';
 
 class GetJokeModel extends GetJoke {
-  GetJokeModel(
-      {required super.title,
-      required super.content,
-      required super.author,
-      required super.likesNumber,
-      required super.sharesNumber});
+  GetJokeModel({
+    required super.title,
+    required super.text,
+    required super.username,
+    required super.id,
+  });
 
   factory GetJokeModel.fromMap(Map<String, dynamic> map) {
     return GetJokeModel(
       title: map['title'] as String,
-      content: map['content'] as String,
-      author: map['author'] as String,
-      likesNumber: map['likesNumber'] as int,
-      sharesNumber: map['sharesNumber'] as int,
+      text: map['text'] as String,
+      username: map['username'] as String,
+      id: map["id"] as int,
     );
   }
 

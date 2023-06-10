@@ -38,9 +38,12 @@ class _WriteJokeScreenState extends State<WriteJokeScreen> {
 
     if (state is SuccessPostState) {
       _resetTextFields();
-      CustomBotToasts.showErrorToast(
-        text: state.successMessage,
+      FocusScope.of(context).requestFocus(FocusNode());
+      CustomBotToasts.showSuccessToast(
+        text: "Joke posted!",
       );
+
+      context.read<WriteJokeCubit>().resetStatus();
     }
   }
 
@@ -83,7 +86,9 @@ class _WriteJokeScreenState extends State<WriteJokeScreen> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 15, vertical: 15),
+                      horizontal: 15,
+                      vertical: 15,
+                    ),
                     child: ScrollConfiguration(
                       behavior: CustomBehavior(),
                       child: SingleChildScrollView(

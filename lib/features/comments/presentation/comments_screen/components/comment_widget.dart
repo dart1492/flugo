@@ -28,9 +28,10 @@ class CommentWidget extends StatelessWidget {
         horizontal: 5,
       ),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Here is my exceptionally long comment for you",
+            comment.text,
             style: josefin.s16.withColor(
               AppColors.plainWhite,
             ),

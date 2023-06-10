@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flugo_mobile/features/jokes/data/models/get_joke_model.dart';
 import 'package:flugo_mobile/features/jokes/domain/entities/get_joke.dart';
 import 'package:flugo_mobile/features/jokes/domain/entities/joke_filters.dart';
 import 'package:flugo_mobile/features/jokes/domain/entities/paginated_indices.dart';
@@ -30,21 +31,29 @@ class JokesDatasourceImpl extends JokesDatasource {
     JokeFilters filters,
     String queryText,
   ) async {
-    // TODO: Implement fetching jokes from the server
-    return [
-      GetJoke(
-        title: "title",
-        content: "content\n\n\n\n\n\n\n\nn\n\\n\n\nn\n\n\n\n\n\n\n\n\n\nasdasd",
-        author: "author",
-        likesNumber: 5,
-        sharesNumber: 5,
-      ),
-    ];
+    final result = await dio.get(
+      "/jokes",
+      queryParameters: {
+        "limit": 5,
+        "offset": 0,
+        'order_by': "created_at",
+      },
+    );
+
+    final dynamicList = result.data as List<dynamic>;
+    final List<GetJoke> resultList = [];
+    for (int i = 0; i < dynamicList.length; i++) {
+      resultList.add(
+        GetJokeModel.fromMap(
+          dynamicList[i],
+        ),
+      );
+    }
+    return resultList;
   }
 
   @override
   Future<void> addJoke(PostJoke joke) async {
-    // TODO: Implement adding jokes jokes from the server
-    return;
+    await dio.post("/me/jokes", data: joke.toMap());
   }
 }

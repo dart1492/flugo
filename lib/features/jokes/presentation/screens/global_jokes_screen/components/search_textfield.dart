@@ -2,6 +2,8 @@ import 'package:custom_pop_up_menu/custom_pop_up_menu.dart';
 import 'package:flugo_mobile/core/components/custom_text_field.dart';
 import 'package:flugo_mobile/core/constants/app_colors.dart';
 import 'package:flugo_mobile/core/styles/text_style.dart';
+import 'package:flugo_mobile/features/jokes/data/models/joke_filters_model.dart';
+
 import 'package:flugo_mobile/features/jokes/presentation/blocs/global_jokes_cubit/global_jokes_cubit.dart';
 import 'package:flugo_mobile/features/jokes/presentation/blocs/joke_filters_cubit/joke_filters_cubit.dart';
 import 'package:flutter/material.dart';
@@ -89,8 +91,14 @@ class _SearchTextfieldState extends State<SearchTextfield> {
               //       : AppColors.darkerGrey,
               // ),
             ),
-            child: const Icon(
-              FeatherIcons.filter,
+            child: GestureDetector(
+              onTap: () => context.read<GlobalJokesCubit>().getJokes(
+                    JokeFiltersModel(author: ""),
+                    "",
+                  ),
+              child: const Icon(
+                FeatherIcons.refreshCcw,
+              ),
             ),
           ),
         ),

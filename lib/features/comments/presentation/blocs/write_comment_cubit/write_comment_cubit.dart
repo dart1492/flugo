@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flugo_mobile/core/constants/regular_expressions.dart';
-import 'package:flugo_mobile/features/comments/domain/entities/post_comment.dart';
+import 'package:flugo_mobile/features/comments/data/models/post_comment_model.dart';
 import 'package:flugo_mobile/features/comments/domain/repositories/comments_repository.dart';
 import 'package:flugo_mobile/features/comments/presentation/blocs/write_comment_cubit/write_comment_state.dart';
 
@@ -16,13 +16,16 @@ class WriteCommentCubit extends Cubit<WriteCommentState> {
         );
 
   /// Post comment text
-  void postComment(String text) async {
+  void postComment(String text, int jokeId) async {
     if (text.isNotEmpty) {
       if (RegularExpressions.containsOnlyNewLinesPattern
           .allMatches(text)
           .isEmpty) {
         final postResult = await repo.postComment(
-          PostComment(text: text),
+          PostCommentModel(
+            text: text,
+            jokeId: jokeId,
+          ),
         );
 
         postResult.fold(

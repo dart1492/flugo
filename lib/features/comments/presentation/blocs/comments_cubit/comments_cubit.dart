@@ -10,19 +10,33 @@ class CommentsCubit extends Cubit<CommentsState> {
   /// Cubit responsible for getting comments
   CommentsCubit(
     this.repo,
-  ) : super(CommentsState());
+  ) : super(
+          CommentsState(
+            listOffset: 0,
+          ),
+        );
 
   /// Get a list of comments to the joke
   void getComments(int jokeId) async {
-    emit(LoadingCommentsState());
-    final getResult = await repo.getComments(jokeId);
+    emit(
+      LoadingCommentsState(
+        listOffset: state.listOffset,
+      ),
+    );
+    final getResult = await repo.getComments(
+      jokeId,
+      state.listOffset,
+    );
     getResult.fold(
       (l) => emit(
-        ErrorCommentsState(),
+        ErrorCommentsState(
+          listOffset: state.listOffset,
+        ),
       ),
       (r) => emit(
         LoadedCommentsState(
           comments: r,
+          listOffset: state.listOffset,
         ),
       ),
     );

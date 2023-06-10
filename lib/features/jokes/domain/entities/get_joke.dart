@@ -1,17 +1,15 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 
 class GetJoke {
+  int id;
   String title;
-  String content;
-  String author;
-  int likesNumber;
-  int sharesNumber;
+  String text;
+  String username;
 
   GetJoke({
     required this.title,
-    required this.content,
-    required this.author,
-    required this.likesNumber,
-    required this.sharesNumber,
+    required this.text,
+    required this.username,
+    required this.id,
   });
 }

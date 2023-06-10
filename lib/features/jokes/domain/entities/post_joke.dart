@@ -1,12 +1,14 @@
 /// This entity gets used when user creates his joke and posts it.
 // ignore_for_file: public_member_api_docs
 
-class PostJoke {
+abstract class PostJoke {
   String title;
-  String content;
+  String text;
 
   PostJoke({
     required this.title,
-    required this.content,
+    required this.text,
   });
+
+  Map<String, dynamic> toMap();
 }

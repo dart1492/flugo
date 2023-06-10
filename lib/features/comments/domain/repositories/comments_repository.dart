@@ -13,9 +13,15 @@ class CommentsRepository {
   CommentsRepository(this.datasource);
 
   /// Get comments operation
-  FutureFailable<List<GetComment>> getComments(int jokeId) {
+  FutureFailable<List<GetComment>> getComments(
+    int jokeId,
+    int offset,
+  ) {
     return RepositoryRequestHandler<List<GetComment>>()(
-      request: () => datasource.getComments(jokeId),
+      request: () => datasource.getComments(
+        jokeId,
+        offset,
+      ),
     );
   }
 

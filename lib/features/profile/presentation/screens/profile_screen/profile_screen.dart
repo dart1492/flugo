@@ -13,6 +13,7 @@ import 'package:flugo_mobile/features/profile/presentation/screens/profile_scree
 import 'package:flugo_mobile/features/profile/presentation/screens/profile_screen/components/sections/personal/personal_section.dart';
 import 'package:flugo_mobile/locator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -85,7 +86,11 @@ class ProfileScreen extends StatelessWidget {
                                   ),
                                   const PersonalSection(),
                                 ],
-                              ),
+                              ).animate().fadeIn(
+                                    duration: const Duration(
+                                      milliseconds: 300,
+                                    ),
+                                  ),
                             ],
                           ),
                         ),

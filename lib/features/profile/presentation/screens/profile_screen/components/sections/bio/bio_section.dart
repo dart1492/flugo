@@ -1,6 +1,7 @@
 import 'package:flugo_mobile/core/components/custom_text_field.dart';
 import 'package:flugo_mobile/core/constants/app_colors.dart';
 import 'package:flugo_mobile/core/styles/text_style.dart';
+import 'package:flugo_mobile/core/util/debounce.dart';
 import 'package:flugo_mobile/features/profile/presentation/blocs/profile_cubit/profile_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -22,6 +23,11 @@ class BioSection extends StatefulWidget {
 
 class _BioSectionState extends State<BioSection> {
   TextEditingController controller = TextEditingController();
+  final _debouncer = Debouncer(
+    duration: const Duration(
+      milliseconds: 500,
+    ),
+  );
 
   @override
   void initState() {
@@ -47,7 +53,13 @@ class _BioSectionState extends State<BioSection> {
           child: CustomTextField(
             controller: controller,
             maxLines: 4,
-            onChanged: (p0) => context.read<ProfileCubit>().updateBio(p0),
+            onChanged: (p0) {
+              _debouncer.run(
+                () => _debouncer.run(
+                  () => context.read<ProfileCubit>().updateBio(p0),
+                ),
+              );
+            },
           ),
         ),
       ],

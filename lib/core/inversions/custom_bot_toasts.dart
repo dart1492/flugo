@@ -9,11 +9,24 @@ class CustomBotToasts {
   static void showErrorToast({required String text}) {
     BotToast.showText(
       contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-      align: const Alignment(0, -0.7),
+      align: const Alignment(0, 0.7),
       contentColor: AppColors.lightBlue,
       text: text,
       textStyle: josefin.s16.withColor(
         AppColors.lightRed,
+      ),
+    );
+  }
+
+  /// TOast that indicates success of some operation
+  static void showSuccessToast({required String text}) {
+    BotToast.showText(
+      contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+      align: const Alignment(0, 0.7),
+      contentColor: AppColors.lightBlue,
+      text: text,
+      textStyle: josefin.s16.withColor(
+        AppColors.lightGreen,
       ),
     );
   }

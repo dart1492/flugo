@@ -10,9 +10,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// TextField to write comment text
 class WriteCommentTextField extends StatefulWidget {
+  final jokeId;
+
   /// TextField to write comment text
   const WriteCommentTextField({
     super.key,
+    required this.jokeId,
   });
 
   @override
@@ -63,6 +66,7 @@ class _WriteCommentTextFieldState extends State<WriteCommentTextField> {
                 suffixIcon: GestureDetector(
                   onTap: () => context.read<WriteCommentCubit>().postComment(
                         controller.text,
+                        widget.jokeId,
                       ),
                   child: const Icon(
                     Icons.send,

@@ -139,7 +139,7 @@ class JokesListElement extends StatelessWidget {
             ),
           ),
           subtitle: Text(
-            "by: ${joke.author}",
+            "by: ${joke.username}",
             style: josefin.s16.withColor(
               AppColors.plainWhite,
             ),

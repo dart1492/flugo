@@ -1,4 +1,4 @@
-import 'package:flugo_mobile/features/jokes/domain/entities/post_joke.dart';
+import 'package:flugo_mobile/features/jokes/data/models/post_joke_model.dart';
 import 'package:flugo_mobile/features/jokes/domain/repositories/jokes_repository.dart';
 import 'package:flugo_mobile/features/jokes/presentation/blocs/write_joke_cubit/write_joke_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,49 +21,51 @@ class WriteJokeCubit extends Cubit<WriteJokeState> {
 
   /// Post joke, gathering text values from current state
   void postJoke() async {
-    final currentState = state as WriteJokeInitialState;
+    if (state is WriteJokeInitialState) {
+      final currentState = state as WriteJokeInitialState;
 
-    if (currentState.title.isNotEmpty && currentState.content.isNotEmpty) {
-      var res = await repo.addJoke(
-        PostJoke(
-          title: currentState.title,
-          content: currentState.content,
-        ),
-      );
+      if (currentState.title.isNotEmpty && currentState.content.isNotEmpty) {
+        var res = await repo.addJoke(
+          PostJokeModel(
+            title: currentState.title,
+            text: currentState.content,
+          ),
+        );
 
-      res.fold(
-        (l) {
-          emit(FailedPostState(errorMessage: l.errorMessage));
-          emit(
-            WriteJokeInitialState(
-              title: currentState.title,
-              content: currentState.content,
-              isTitleValidated: true,
-              isContentValidated: true,
-            ),
-          );
-        },
-        (r) {
-          emit(
-            SuccessPostState(successMessage: "Posted!"),
-          );
-          emit(
-            WriteJokeInitialState(
-              title: '',
-              content: '',
-              isTitleValidated: true,
-              isContentValidated: true,
-            ),
-          );
-        },
-      );
-    } else {
-      emit(
-        currentState.copyWith(
-          isContentValidated: currentState.content.isNotEmpty,
-          isTitleValidated: currentState.title.isNotEmpty,
-        ),
-      );
+        res.fold(
+          (l) {
+            emit(FailedPostState(errorMessage: l.errorMessage));
+            emit(
+              WriteJokeInitialState(
+                title: currentState.title,
+                content: currentState.content,
+                isTitleValidated: true,
+                isContentValidated: true,
+              ),
+            );
+          },
+          (r) {
+            emit(
+              SuccessPostState(successMessage: "Posted!"),
+            );
+            emit(
+              WriteJokeInitialState(
+                title: '',
+                content: '',
+                isTitleValidated: true,
+                isContentValidated: true,
+              ),
+            );
+          },
+        );
+      } else {
+        emit(
+          currentState.copyWith(
+            isContentValidated: currentState.content.isNotEmpty,
+            isTitleValidated: currentState.title.isNotEmpty,
+          ),
+        );
+      }
     }
   }
 
@@ -101,5 +103,17 @@ class WriteJokeCubit extends Cubit<WriteJokeState> {
         ),
       );
     }
+  }
+
+  /// reset error state to hide alert toast
+  void resetStatus() {
+    emit(
+      WriteJokeInitialState(
+        title: '',
+        content: '',
+        isTitleValidated: true,
+        isContentValidated: true,
+      ),
+    );
   }
 }

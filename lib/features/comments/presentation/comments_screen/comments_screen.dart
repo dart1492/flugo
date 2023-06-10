@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flugo_mobile/core/components/rounded_appbar.dart';
 import 'package:flugo_mobile/core/constants/app_colors.dart';
 import 'package:flugo_mobile/core/util/custom_scroll_behavior.dart';
-import 'package:flugo_mobile/features/comments/domain/entities/get_comment.dart';
 import 'package:flugo_mobile/features/comments/presentation/blocs/comments_cubit/comments_cubit.dart';
 import 'package:flugo_mobile/features/comments/presentation/blocs/comments_cubit/comments_state.dart';
 import 'package:flugo_mobile/features/comments/presentation/comments_screen/components/comment_widget.dart';
@@ -52,13 +51,10 @@ class CommentsScreen extends StatelessWidget {
                         child: Expanded(
                           flex: 8,
                           child: ListView.builder(
-                            itemCount: 2,
+                            itemCount: state.comments.length,
                             itemBuilder: (context, index) {
                               return CommentWidget(
-                                comment: GetComment(
-                                  authorId: 1,
-                                  text: "sadasd",
-                                ),
+                                comment: state.comments[index],
                               );
                             },
                           ),
@@ -73,7 +69,9 @@ class CommentsScreen extends StatelessWidget {
                     );
                   },
                 ),
-                const WriteCommentTextField(),
+                WriteCommentTextField(
+                  jokeId: jokeId,
+                ),
               ],
             ),
           ),
