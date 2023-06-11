@@ -36,12 +36,14 @@ class CommentWidget extends StatelessWidget {
               AppColors.plainWhite,
             ),
           ),
-          const Row(
+          Row(
             children: [
-              Expanded(
+              const Expanded(
                 child: SizedBox(),
               ),
-              CommentActionsPopupMenuButton(),
+              CommentActionsPopupMenuButton(
+                commentId: comment.id,
+              ),
             ],
           ),
           const SizedBox(

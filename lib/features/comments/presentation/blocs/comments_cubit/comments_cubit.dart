@@ -41,4 +41,19 @@ class CommentsCubit extends Cubit<CommentsState> {
       ),
     );
   }
+
+  /// Delete user's comment
+  void deleteComment(int id) async {
+    if (state is LoadedCommentsState) {
+      final prevState = state as LoadedCommentsState;
+      emit(
+        LoadedCommentsState(
+          comments: [...prevState.comments]
+            ..removeWhere((element) => element.id == id),
+          listOffset: prevState.listOffset,
+        ),
+      );
+      await repo.deleteComment(id);
+    }
+  }
 }

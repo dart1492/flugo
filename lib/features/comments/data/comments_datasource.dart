@@ -10,7 +10,7 @@ abstract class CommentsDatasource {
 
   Future<void> postComment(PostComment comment);
 
-  Future<void> deleteComment(int commentId);
+  Future<void> deleteComment(int id);
 }
 
 class DioCommentsDatasourceImpl extends CommentsDatasource {
@@ -39,15 +39,12 @@ class DioCommentsDatasourceImpl extends CommentsDatasource {
       );
     }
 
-    print(commentsList);
-
     return commentsList;
   }
 
   @override
-  Future<void> deleteComment(int commentId) {
-    // TODO: implement deleteComment
-    throw UnimplementedError();
+  Future<void> deleteComment(int id) async {
+    await dio.delete("/me/comments/$id");
   }
 
   @override

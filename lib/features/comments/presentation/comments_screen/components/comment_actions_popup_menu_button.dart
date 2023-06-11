@@ -4,13 +4,18 @@ import 'package:custom_pop_up_menu/custom_pop_up_menu.dart';
 import 'package:flugo_mobile/core/components/dialog_option.dart';
 import 'package:flugo_mobile/core/components/icon_widgets/custom_more_horiz_icon.dart';
 import 'package:flugo_mobile/core/constants/app_colors.dart';
+import 'package:flugo_mobile/features/comments/presentation/blocs/comments_cubit/comments_cubit.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// Popup menu button for comment actions
 class CommentActionsPopupMenuButton extends StatelessWidget {
+  final int commentId;
+
   /// Popup menu button for comment actions
   const CommentActionsPopupMenuButton({
     super.key,
+    required this.commentId,
   });
 
   @override
@@ -31,9 +36,9 @@ class CommentActionsPopupMenuButton extends StatelessWidget {
             color: AppColors.lightBlue,
           ),
           width: 100,
-          child: const Column(
+          child: Column(
             children: [
-              DialogOption(
+              const DialogOption(
                 icon: Icon(
                   Icons.share,
                   size: 20,
@@ -41,11 +46,13 @@ class CommentActionsPopupMenuButton extends StatelessWidget {
                 ),
                 text: "Share",
               ),
-              SizedBox(
+              const SizedBox(
                 height: 5,
               ),
               DialogOption(
-                icon: Icon(
+                onTap: () =>
+                    context.read<CommentsCubit>().deleteComment(commentId),
+                icon: const Icon(
                   Icons.delete,
                   size: 20,
                   color: AppColors.highlightedRed,
