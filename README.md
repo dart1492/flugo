@@ -1,7 +1,3 @@
-<h1 align="center">
-    <img src="showcase/flugo.png" width=100 height=100>
-</h1>
-
 # Flugo
 
 Joke-sharing app, made with Flutter
